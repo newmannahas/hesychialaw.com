@@ -238,57 +238,127 @@
             margin-bottom: 1rem;
         }
 
-        .philosophy-intro p {
-            font-size: 1.2rem;
+        .rhetoric-container {
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            background: linear-gradient(135deg, rgba(212, 226, 241, 0.1) 0%, rgba(212, 226, 241, 0.3) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rhetoric-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(26, 58, 92, 0.05) 0%, transparent 70%);
+            animation: pulse 15s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); }
+            100% { transform: scale(1.2); }
+        }
+
+        .rhetoric-elements {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background-color: var(--primary-blue);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rhetoric-element {
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .rhetoric-element:hover {
+            background-color: var(--pale-blue);
+            transform: scale(1.02);
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .rhetoric-element h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.3rem;
+            font-style: italic;
+        }
+
+        .rhetoric-element .subtitle {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .rhetoric-element p {
             color: var(--text-dark);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .rhetoric-symbol {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.2;
+            color: var(--primary-blue);
+        }
+
+        .rhetoric-connection {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: rgba(26, 58, 92, 0.05);
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rhetoric-connection p {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin: 0;
             max-width: 100%;
         }
 
-        .philosophy-principle {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--primary-blue);
-            text-align: center;
-            margin: 3rem auto;
-            padding: 2rem;
-            max-width: 800px;
-            border-left: 4px solid var(--light-blue);
-            border-right: 4px solid var(--light-blue);
-            background-color: rgba(212, 226, 241, 0.3);
-        }
+        @media (max-width: 768px) {
+            .rhetoric-container {
+                padding: 2rem 1.5rem;
+            }
 
-        .rhetoric-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+            .rhetoric-elements {
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
 
-        .rhetoric-card {
-            text-align: center;
-            padding: 2rem;
-        }
+            .rhetoric-element {
+                padding: 2rem 1.5rem;
+            }
 
-        .rhetoric-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-            font-style: italic;
-        }
+            .rhetoric-element:hover {
+                transform: none;
+            }
 
-        .rhetoric-card .subtitle {
-            font-size: 1.1rem;
-            color: var(--light-blue);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .rhetoric-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+            .rhetoric-symbol {
+                font-size: 2.5rem;
+            }
         }
 
         /* --- Services Grid --- */
@@ -529,14 +599,6 @@
             opacity: 0.9;
         }
 
-        footer .footer-quote {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: var(--pale-blue);
-        }
-
         footer .disclaimer {
             font-size: 0.85rem;
             opacity: 0.7;
@@ -695,37 +757,42 @@
                 <div class="philosophy-intro">
                     <h2>New Law Firm, Timeless Principles</h2>
                 </div>
-                <div class="rhetoric-grid">
-                    <div class="rhetoric-card">
-                        <h3>Ethos</h3>
-                        <p class="subtitle">Credibility</p>
-                        <p>It's hard to persuade someone if you have a track record of overstating. Effective advocacy requires a track record of integrity.</p>
+                
+                <div class="rhetoric-container">
+                    <div class="rhetoric-elements">
+                        <div class="rhetoric-element">
+                            <div class="rhetoric-symbol">⚖</div>
+                            <h4>Ethos</h4>
+                            <p class="subtitle">Credibility</p>
+                            <p>It's hard to persuade someone if you have a track record of overstating. Effective advocacy requires a track record of integrity.</p>
+                        </div>
+                        
+                        <div class="rhetoric-element">
+                            <div class="rhetoric-symbol">◊</div>
+                            <h4>Logos</h4>
+                            <p class="subtitle">Logic</p>
+                            <p>It's hard to persuade someone if you're wrong. Effective advocacy requires thinking soundly and honestly.</p>
+                        </div>
+                        
+                        <div class="rhetoric-element">
+                            <div class="rhetoric-symbol">❤</div>
+                            <h4>Pathos</h4>
+                            <p class="subtitle">Empathy</p>
+                            <p>It's hard to persuade someone if you can't illuminate the human stakes. Effective advocacy requires empathy.</p>
+                        </div>
                     </div>
-                    <div class="rhetoric-card">
-                        <h3>Logos</h3>
-                        <p class="subtitle">Logic</p>
-                        <p>It's hard to persuade someone if you're wrong. Effective advocacy requires thinking soundly and honestly.</p>
-                    </div>
-                    <div class="rhetoric-card">
-                        <h3>Pathos</h3>
-                        <p class="subtitle">Empathy</p>
-                        <p>Illuminating the human stakes. Understanding what matters to your audience and why.</p>
-                    </div>
-                </div>
-                <div class="philosophy-principle">
-                    While lawyers often ask "How do I get this result?", I ask "What do I need to do to earn it?"
                 </div>
             </div>
         </section>
 
         <section id="services">
             <div class="container">
-                <h2>How Can I Add Value</h2>
+                <h2>How Can Newman Add Value</h2>
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon">⚖️</div>
                         <h3>Appeals That Win</h3>
-                        <p>I take on complex appeals where the stakes justify extraordinary effort. My success-based fees mean I succeed only when you do—aligning our interests completely.</p>
+                        <p>Newman takes on complex appeals where the stakes justify extraordinary effort. His success-based fees mean he succeeds only when you do—aligning interests completely.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🛡️</div>
@@ -735,17 +802,17 @@
                     <div class="service-card">
                         <div class="service-icon">🎯</div>
                         <h3>Cut to the Chase</h3>
-                        <p>I partner with primary counsel to craft dispositive motions that end cases decisively. With success-based fees, I'm incentivized to win, never to prolong litigation.</p>
+                        <p>Newman partners with primary counsel to craft dispositive motions that end cases decisively. With success-based fees, he's incentivized to win, never to prolong litigation.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🔍</div>
                         <h3>A Second Opinion</h3>
-                        <p>Sometimes you need someone who is not in the weeds to see the forest. I provide second opinions on critical strategy and outcome-determinative issues that are too important not to ground your position on bedrock.</p>
+                        <p>Sometimes you need someone who is not in the weeds to see the forest. Newman provides second opinions on critical strategy and outcome-determinative issues that are too important not to ground your position on bedrock.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🕊️</div>
                         <h3>Making Peace</h3>
-                        <p>What I am most proud of: I have helped countless clients avoid litigation altogether. The best victory is the battle never fought.</p>
+                        <p>What Newman is most proud of: He has helped countless clients avoid litigation altogether. The best victory is the battle never fought.</p>
                     </div>
                 </div>
             </div>
@@ -754,18 +821,21 @@
         <section id="about">
             <div class="container">
                 <h2>About Newman Nahas</h2>
+                <p style="text-align: center; font-size: 1.4rem; font-weight: 500; color: var(--primary-blue); margin-bottom: 3rem;">Founder and Managing Member of <span class="small-caps">Hesychia Law</span></p>
                 <div class="about-content">
                     <div class="about-left">
                         <div class="about-photo">
                             <img src="newman-nahas-photo.jpg" alt="Newman Nahas">
+                            <p style="text-align: center; font-style: italic; color: var(--text-light); margin-top: 0.75rem; font-size: 0.9rem;">Newman serving in appellate-lawyer-at-trial capacity</p>
                         </div>
                         <div class="credentials-box">
-                            <h3>Background</h3>
+                            <h3>Credentials</h3>
                             <ul class="credentials-list">
+                                <li>University of Florida, Valedictorian</li>
                                 <li>Rhodes Scholar, Oxford University</li>
                                 <li>M.Phil. Philosophy & Religion</li>
                                 <li>J.D., Harvard Law School</li>
-                                <li>Bar: California & Texas</li>
+                                <li>Bar: California, Texas & New York</li>
                             </ul>
                             <h3 style="margin-top: 2rem;">Track Record</h3>
                             <ul class="credentials-list">
@@ -777,27 +847,31 @@
                         </div>
                     </div>
                     <div class="about-text">
+                        <div style="background-color: var(--pale-blue); padding: 2rem; border-radius: 10px; margin-bottom: 2rem;">
+                            <p style="font-size: 1.1rem; color: var(--primary-blue); margin-bottom: 0;">After nearly two decades at America's most exceptional law firms, Newman Nahas founded Hesychia Law to focus on what distinguished him in big law: creative and clear thinking, early identification of outcome-determinative issues, and appellate advocacy that delivers results against the longest odds.</p>
+                        </div>
+                        
                         <div class="highlight-quote">
-                            "I'm driven by what Stephen J. Gould termed 'intellectual promiscuity'—loving butterflies as much as literature because there is no fancy without science and no art without facts."
+                            "Newman is driven by what Stephen J. Gould termed 'intellectual promiscuity'—loving butterflies as much as literature because there is no fancy without science and no art without facts."
                         </div>
                         
                         <div class="story-section">
                             <h4>The Foundation</h4>
-                            <p>As an undergrad, I took courses across thirteen disciplines—from upper-level physics to modern poetry—and graduated first in my class. My post-grad research at Oxford focused on issues at the intersection of science, philosophy, and religion.</p>
+                            <p>As an undergrad, Newman took courses across thirteen disciplines—from upper-level physics to modern poetry—and graduated first in his class. His post-grad research at Oxford focused on issues at the intersection of science, philosophy, and religion.</p>
                         </div>
 
                         <div class="story-section">
                             <h4>The Legal Journey</h4>
-                            <p>At Harvard Law School, I served as a teaching fellow for Michael Sandel's "Justice." That experience impacted how I think about the law and persuasion perhaps more than any single course at law school. Since then, I've worked at America's top law firms, spanning multiple jurisdictions, industries, and practice areas.</p>
+                            <p>At Harvard Law School, Newman served as a teaching fellow for Michael Sandel's "Justice." That experience impacted how he thinks about the law and persuasion perhaps more than any single course at law school. Since then, he has worked at America's top law firms, spanning multiple jurisdictions, industries, and practice areas.</p>
                         </div>
 
                         <div class="story-section">
                             <h4>The Approach in Action</h4>
-                            <p>When plaintiffs filed a securities class action against BofA seeking $10B in damages, I devoured accounting literature to develop a novel argument that got the case dismissed before a single document was produced.</p>
+                            <p>When plaintiffs filed a securities class action against BofA seeking $10B in damages, Newman devoured accounting literature to develop a novel argument that got the case dismissed before a single document was produced.</p>
                             
-                            <p>When I joined—on the eve of trial—the team enforcing a Honeywell patent, I quickly translated complex electricity and magnetism issues into jury-friendly terms.</p>
+                            <p>When he joined—on the eve of trial—the team enforcing a Honeywell patent, he quickly translated complex electricity and magnetism issues into jury-friendly terms.</p>
                             
-                            <p>The constant has been the creativity and interdisciplinary perspective I bring to solving complex problems.</p>
+                            <p>The constant has been the creativity and interdisciplinary perspective Newman brings to solving complex problems.</p>
                         </div>
                         
                         <div class="promises-container">
@@ -827,11 +901,11 @@
                 <div class="contact-content">
                     <h2>Let's Talk</h2>
                     <div class="contact-info">
-                        <h3>Contact Me</h3>
+                        <h3>Contact Newman</h3>
                         <div class="contact-details">
                             <p style="color: var(--pale-blue);">Email: <a href="mailto:nnahas@hesychialaw.com">nnahas@hesychialaw.com</a></p>
                             <p style="color: var(--pale-blue);">Phone: <a href="tel:917-744-3555">917-744-3555</a></p>
-                            <a href="mailto:nnahas@hesychialaw.com" class="contact-cta">Send Me an Email</a>
+                            <a href="mailto:nnahas@hesychialaw.com" class="contact-cta">Send an Email</a>
                         </div>
                     </div>
                 </div>
@@ -841,7 +915,6 @@
 
     <footer>
         <div class="container">
-            <p class="footer-quote">"In the stillness of the mind I saw myself as I am — unbound." – Sri Nisargadatta Maharaj</p>
             <p>&copy; 2025 <span class="small-caps">Hesychia Law</span>. All Rights Reserved.</p>
             <p class="disclaimer">This is attorney advertising. Past results do not guarantee future outcomes.</p>
         </div>
