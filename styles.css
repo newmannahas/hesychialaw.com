@@ -136,4 +136,77 @@ nav {
 .menu-items { list-style: none; text-align: center; }
 .menu-items a {
     font-family: var(--font-heading);
-    font-size
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 400;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+}
+.menu-items a:hover, .menu-items a:focus { color: var(--text-primary); transform: scale(1.05); outline: none; }
+
+/* --- HERO SECTION --- */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem;
+    background-color: #fff;
+    border-bottom: 1px solid var(--border-color);
+}
+.hero-content { max-width: 900px; }
+.hero-logo-container { margin-bottom: 2rem; }
+.hero-logo { width: 80px; height: 80px; color: var(--accent); }
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 400; line-height: 1.2; letter-spacing: 0.05em; font-variant: small-caps; }
+.hero h1 span {
+    display: block;
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-variant: normal;
+}
+.cta-button {
+    display: inline-block;
+    margin-top: 2.5rem;
+    padding: 1rem 2.5rem;
+    background-color: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+.cta-button:hover { background-color: var(--text-primary); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+/* --- PHILOSOPHY SECTION --- */
+.philosophy { padding: 8rem 5rem; text-align: center; }
+.philosophy-content { max-width: 900px; margin: 0 auto; }
+.philosophy h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 400; margin-bottom: 4rem; line-height: 1.4; color: var(--text-primary); }
+.philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; }
+.philosophy-icon { font-family: var(--font-heading); font-size: 2rem; color: var(--accent); margin-bottom: 1rem; font-style: italic; }
+.philosophy-item h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.philosophy-item p { font-size: 1rem; line-height: 1.7; color: var(--text-secondary); }
+
+/* --- SERVICES SECTION --- */
+.services { padding: 8rem 5rem; background-color: #fff; border-top: 1px solid var(--border-color); }
+.section-title { text-align: center; font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; margin-bottom: 5rem; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -1rem; left: 50%; transform: translateX(-50%); width: 60px; height: 2px; background: var(--accent); }
+.services-list { max-width: 1100px; margin: 0 auto; }
+.service-item { padding: 3rem 0; border-bottom: 1px solid var(--border-color); display: grid; grid-template-columns: 100px 1fr; gap: 3rem; align-items: flex-start; }
+.service-item:last-child { border-bottom: none; }
+
+.service-icon {
+    width: 100px;
+    text-align: center;
+    padding-top: 0.5rem;
+}
