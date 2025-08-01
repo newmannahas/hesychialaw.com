@@ -7,7 +7,255 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- Base Styles & Typography --- */
+        :root {
+            --dark-bg: #1a1d21;
+            --medium-bg: #282c34;
+            --light-text: #e1e1e1;
+            --accent-gold: #c5a880;
+            --accent-hover: #e0c39e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            max-width: 75ch; /* Improves readability */
+        }
+
+        a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: #ffffff;
+        }
+
+        /* --- Layout & Sections --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--medium-bg);
+        }
+
+        /* --- Navigation Bar --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(26, 29, 33, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav a {
+            padding: 0 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark-bg);
+        }
+
+        .hero h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            color: var(--light-text);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* --- Why Hesychia Section (Cards) --- */
+        .differentiators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--dark-bg);
+            padding: 2rem;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- Services Section --- */
+        .service-item {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        .service-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* --- About Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-credentials h3 {
+            color: var(--accent-gold);
+        }
+
+        .about-credentials ul {
+            list-style: none;
+            padding: 0;
+            font-weight: 600;
+        }
+        .about-credentials ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .key-matters-list {
+            list-style-type: '— ';
+            padding-left: 1.5rem;
+        }
+        .key-matters-list li {
+            margin-bottom: 1rem;
+        }
+
+        /* --- Contact & Footer --- */
+        .contact-section {
+            text-align: center;
+        }
+        .contact-info {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+        }
+        .final-cta {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background-color: #111;
+        }
+        footer p {
+            max-width: 100%;
+        }
+        footer .quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            nav .container {
+                flex-direction: column;
+            }
+            nav a {
+                padding: 0.5rem 1rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -139,6 +387,24 @@
             <p style="font-size: 0.8rem; opacity: 0.6; margin-top:1rem;">This is attorney advertising. Past results do not guarantee future outcomes.</p>
         </div>
     </footer>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
