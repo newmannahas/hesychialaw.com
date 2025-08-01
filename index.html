@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HESYCHIA | Strength in Stillness</title>
+    <title>HESYCHIA LAW | Strength in Soundness</title>
     <meta name="description" content="A new law firm, timeless principles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="header-quote">
-            "Understand – through the stillness, Act – out of the stillness, Conquer – in the stillness." – Dag Hammarskjöld
-        </div>
         <nav id="navbar" role="navigation" aria-label="Main navigation">
             <div class="nav-container">
-                <a href="#" class="logo">Hesychia Law</a>
+                <a href="#home" class="logo">HESYCHIA LAW</a>
+                <div class="header-quote">
+                    "Understand – through the stillness, Act – out of the stillness, Conquer – in the stillness." – Dag Hammarskjöld
+                </div>
                 <button class="menu-trigger" id="menuTrigger" aria-controls="menu" aria-expanded="false">MENU</button>
             </div>
         </nav>
@@ -37,12 +37,15 @@
         <section class="hero" id="home">
             <div class="hero-content">
                 <div class="hero-logo-container">
-                    <svg class="hero-logo" width="100" height="100" viewBox="0 0 26.458 26.458" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4.63 21.828V4.63h17.198v17.198zm.661-1.323h15.876V5.952H5.291z"/><path d="M13.229 20.32v-5.292m0-2.646v-5.291m-6.614 6.614h5.291m2.646 0h5.291"/></svg>
+                    <svg class="hero-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path class="logo-scales-beam" d="M 20 55 L 80 55 M 50 35 V 55"/>
+                        <path class="logo-scales-pan" d="M 30 65 L 20 55 L 40 55 Z"/>
+                        <path class="logo-scales-pan" d="M 70 65 L 60 55 L 80 55 Z"/>
+                        <path class="logo-figure" d="M 50 42 A 8 8 0 1 1 50 26 A 8 8 0 0 1 50 42 M 44 42 C 44 52, 56 52, 56 42"/>
+                    </svg>
                 </div>
-                <h1>
-                    <span>A New Law Firm, Timeless Principles</span>
-                    HESYCHIA LAW
-                </h1>
+                <p class="hero-subheading">A New Law Firm, Timeless Principles</p>
+                <h1>Strength in Soundness</h1>
                 <a href="#philosophy" class="cta-button">Learn More</a>
             </div>
         </section>
@@ -77,54 +80,58 @@
                     <div class="service-icon" aria-hidden="true">
                         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M 20 75 L 50 75 Q 60 75 60 65 L 60 35 Q 60 25 70 25 L 85 25"/></svg>
                     </div>
-                    <h3 class="service-title">High-Stakes Appeals</h3>
-                    <p class="service-description">Securing reversals and defending victories in matters where the outcome is critical.</p>
+                    <div class="service-text">
+                        <h3 class="service-title">High-Stakes Appeals</h3>
+                        <p class="service-description">Securing reversals and defending victories in matters where the outcome is critical.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                     <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g class="tangle"><path d="M20 25 L 80 75 M 35 35 L 65 65 M 20 75 L 80 25 M 30 60 L 70 40"/></g><path class="cut" d="M 50 10 L 50 90"/></svg>
+                    </div>
+                    <div class="service-text">
+                        <h3 class="service-title">Case-Ending Motions</h3>
+                        <p class="service-description">Crafting motions that cut through the noise to achieve a swift, successful resolution.</p>
+                    </div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon" aria-hidden="true">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20 25 L 80 75 M 35 35 L 65 65 M 20 75 L 80 25 M 30 60 L 70 40"/><path d="M 50 10 L 50 90"/></svg>
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect class="fill-accent" x="10" y="70" width="80" height="10"/><path d="M 30 70 L 30 30 M 50 70 L 50 30 M 70 70 L 70 30"/></svg>
                     </div>
-                    <h3 class="service-title">Case-Ending Motions</h3>
-                    <p class="service-description">Crafting motions that cut through the noise to achieve a swift, successful resolution.</p>
+                    <div class="service-text">
+                        <h3 class="service-title">Appeal-Proof Strategy</h3>
+                        <p class="service-description">Building cases on a sound foundation from day one to ensure victories are built to last.</p>
+                    </div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon" aria-hidden="true">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="70" width="80" height="10"/><path d="M 30 70 L 30 30 M 50 70 L 50 30 M 70 70 L 70 30"/></svg>
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M 15 50 Q 32.5 30 50 50 T 85 50"/><circle class="fill-accent" cx="15" cy="50" r="5"/><circle class="fill-accent" cx="50" cy="50" r="5"/><circle class="fill-accent" cx="85" cy="50" r="5"/></svg>
                     </div>
-                    <h3 class="service-title">Appeal-Proof Strategy</h3>
-                    <p class="service-description">Building cases on a sound foundation from day one to ensure victories are built to last.</p>
+                    <div class="service-text">
+                        <h3 class="service-title">Appellate Lawyer at Trial</h3>
+                        <p class="service-description">Preserving error, drafting jury charges, and weaving the grounds for appeal into the trial record.</p>
+                    </div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon" aria-hidden="true">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M 15 50 Q 32.5 30 50 50 T 85 50"/><circle cx="15" cy="50" r="5"/><circle cx="50" cy="50" r="5"/><circle cx="85" cy="50" r="5"/></svg>
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle class="fill-opacity" cx="42" cy="50" r="28"/><circle class="fill-opacity" cx="58" cy="50" r="28"/></svg>
                     </div>
-                    <h3 class="service-title">Appellate Lawyer at Trial</h3>
-                    <p class="service-description">Preserving error, drafting jury charges, and weaving the grounds for appeal into the trial record.</p>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon" aria-hidden="true">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="42" cy="50" r="28"/><circle cx="58" cy="50" r="28"/></svg>
+                    <div class="service-text">
+                        <h3 class="service-title">Strategic Counsel</h3>
+                        <p class="service-description">A sounding board, a second opinion with no horse in the race, or separate counsel with a fresh perspective.</p>
                     </div>
-                    <h3 class="service-title">Strategic Counsel</h3>
-                    <p class="service-description">Providing a sounding board and a fresh perspective when the stakes are high and the path forward is unclear.</p>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon" aria-hidden="true">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20 20 H 50 V 50 H 80 V 80 H 20 Z"/><path d="M80 80 V 50 H 50 V 20 H 20"/></svg>
-                    </div>
-                    <h3 class="service-title">Value Creation & Mediation</h3>
-                    <p class="service-description">Seeking win-win resolutions that not only end the conflict but also create unforeseen positive outcomes.</p>
                 </div>
             </div>
         </section>
 
         <section class="about" id="about">
             <div class="about-content">
-                <div class="bio-photo">
+                <div class="bio-photo-container">
                     <img src="newman-nahas-photo.jpg" alt="A professional headshot of Newman Nahas.">
                 </div>
                 <div class="bio">
-                    <h2>Newman Nahas, founder and managing member of HESYCHIA LAW</h2>
+                    <h2>Newman Nahas</h2>
+                    <p class="bio-title">Founder and Managing Member of HESYCHIA LAW</p>
                     <p>My approach to law flows from a unique intellectual journey. As a Rhodes Scholar at Oxford studying philosophy and religion, I trained my mind to deconstruct complex systems of thought. At Harvard Law School, I learned to apply that analytical rigor to legal doctrine. The result is a practice that sees beyond surface arguments to fundamental principles.</p>
                     <ul class="credentials-list">
                         <li>Rhodes Scholar, Oxford, M.Phil. Philosophy & Religion</li>
@@ -139,7 +146,7 @@
         <section class="contact" id="contact">
             <div class="contact-content">
                 <h2>Begin the Conversation</h2>
-                <p class="contact-subtitle">I provide a free, confidential initial consultation to determine if we are the right fit for each other.</p>
+                <p class="contact-subtitle">I provide a confidential initial consultation to determine if we are the right fit for each other.</p>
                 <div class="contact-info">
                     <a href="mailto:nnahas@hesychialaw.com">nnahas@hesychialaw.com</a>
                 </div>
