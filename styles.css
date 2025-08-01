@@ -75,14 +75,6 @@ blockquote {
     color: #ffffff;
 }
 
-code {
-    font-family: monospace;
-    background-color: var(--medium-bg);
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    font-size: 0.9em;
-}
-
 /* --- Layout & Sections --- */
 .container {
     max-width: 1100px;
@@ -238,17 +230,12 @@ footer .quote {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
-footer a {
-    font-size: 0.8rem;
-    opacity: 0.6;
-    margin-top:1rem;
-}
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     h1 { font-size: 2.8rem; }
     h2 { font-size: 2.2rem; }
-    nav .container { flex-wrap: wrap; }
+    nav .container { flex-direction: column; }
     nav a { padding: 0.5rem 1rem; }
     .about-grid { grid-template-columns: 1fr; }
 }
