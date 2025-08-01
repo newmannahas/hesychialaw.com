@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* --- Base Styles & Typography --- */
         :root {
             --dark-bg: #1a1d21;
             --medium-bg: #282c34;
@@ -16,17 +15,8 @@
             --accent-gold: #c5a880;
             --accent-hover: #e0c39e;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--dark-bg);
@@ -34,47 +24,23 @@
             line-height: 1.7;
             font-size: 16px;
         }
-
         h1, h2, h3 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             line-height: 1.2;
             color: #ffffff;
         }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 700;
-        }
-
+        h1 { font-size: 4rem; font-weight: 700; }
         h2 {
             font-size: 2.8rem;
             margin-bottom: 2rem;
             color: var(--accent-gold);
             text-align: center;
         }
-
-        h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            max-width: 75ch; /* Improves readability */
-        }
-
-        a {
-            color: var(--accent-gold);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--accent-hover);
-        }
-
+        h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #ffffff; }
+        p { margin-bottom: 1rem; max-width: 75ch; }
+        a { color: var(--accent-gold); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--accent-hover); }
         blockquote {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.5rem;
@@ -84,23 +50,9 @@
             margin: 2rem 0;
             color: #ffffff;
         }
-
-        /* --- Layout & Sections --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        section:nth-of-type(odd) {
-            background-color: var(--medium-bg);
-        }
-
-        /* --- Navigation Bar --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 6rem 0; }
+        section:nth-of-type(odd) { background-color: var(--medium-bg); }
         nav {
             position: fixed;
             top: 0;
@@ -111,22 +63,8 @@
             z-index: 1000;
             border-bottom: 1px solid #333;
         }
-
-        nav .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        nav a {
-            padding: 0 1.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        /* --- Hero Section --- */
+        nav .container { display: flex; justify-content: center; align-items: center; }
+        nav a { padding: 0 1.5rem; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
         .hero {
             height: 100vh;
             display: flex;
@@ -137,11 +75,7 @@
             padding: 2rem;
             background-color: var(--dark-bg);
         }
-
-        .hero h1 {
-            margin-bottom: 0.5rem;
-        }
-
+        .hero h1 { margin-bottom: 0.5rem; }
         .hero .tagline {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.75rem;
@@ -149,14 +83,7 @@
             font-weight: 400;
             letter-spacing: 1px;
         }
-
-        /* --- Why Hesychia Section (Cards) --- */
-        .differentiators-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
+        .differentiators-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .card {
             background-color: var(--dark-bg);
             padding: 2rem;
@@ -164,96 +91,29 @@
             border-radius: 5px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        /* --- Services Section --- */
-        .service-item {
-            margin-bottom: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid #333;
-        }
-        .service-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        /* --- About Section --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .about-credentials h3 {
-            color: var(--accent-gold);
-        }
-
-        .about-credentials ul {
-            list-style: none;
-            padding: 0;
-            font-weight: 600;
-        }
-        .about-credentials ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .key-matters-list {
-            list-style-type: '— ';
-            padding-left: 1.5rem;
-        }
-        .key-matters-list li {
-            margin-bottom: 1rem;
-        }
-
-        /* --- Contact & Footer --- */
-        .contact-section {
-            text-align: center;
-        }
-        .contact-info {
-            font-size: 1.2rem;
-            margin: 2rem 0;
-        }
-        .final-cta {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            font-size: 1.5rem;
-            color: var(--accent-gold);
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            background-color: #111;
-        }
-        footer p {
-            max-width: 100%;
-        }
-        footer .quote {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* --- Responsive Design --- */
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .service-item { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #333; }
+        .service-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .about-grid { display: grid; grid-template-columns: 300px 1fr; gap: 3rem; align-items: start; }
+        .about-photo { width: 100%; height: auto; border-radius: 5px; }
+        .about-credentials h3 { color: var(--accent-gold); }
+        .about-credentials ul { list-style: none; padding: 0; font-weight: 600; }
+        .about-credentials ul li { margin-bottom: 0.5rem; }
+        .key-matters-list { list-style-type: '— '; padding-left: 1.5rem; }
+        .key-matters-list li { margin-bottom: 1rem; }
+        .contact-section { text-align: center; }
+        .contact-info { font-size: 1.2rem; margin: 2rem 0; }
+        .final-cta { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.5rem; color: var(--accent-gold); }
+        footer { text-align: center; padding: 3rem 2rem; background-color: #111; }
+        footer p { max-width: 100%; }
+        footer .quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; margin-bottom: 1.5rem; }
         @media (max-width: 768px) {
             h1 { font-size: 2.8rem; }
             h2 { font-size: 2.2rem; }
-            nav .container {
-                flex-direction: column;
-            }
-            nav a {
-                padding: 0.5rem 1rem;
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
+            nav .container { flex-direction: column; }
+            nav a { padding: 0.5rem 1rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-photo-container { max-width: 300px; margin: 0 auto 2rem auto; }
         }
     </style>
 </head>
@@ -278,9 +138,8 @@
         <section id="philosophy">
             <div class="container">
                 <h2>My Philosophy</h2>
-                <p><strong>Hesychia</strong>—from the Greek for stillness, quiet, and peace—is more than a name; it is my entire approach to the practice of law. I believe the most powerful advocacy arises not from noise and conflict, but from the clarity that can only be found in quiet contemplation. While others escalate, I resolve.</p>
-                <p>My persuasion is built on the classical foundations: <code>logos</code> (logic), <code>ethos</code> (credibility), and <code>pathos</code> (values). But for me, <strong><code>logos</code>—unshakable soundness of reasoning—is the bedrock.</strong> When your case stands on solid ground, you are immune to procedural gamesmanship and litigation theater. You gain the peace of mind that comes from knowing your position can withstand any assault.</p>
-                <blockquote>Too many lawyers ask, “How do I get an outcome?” I ask, <strong>“How do we <em>earn</em> it?”</strong> This is the essence of soundness. It means my appeals to ethos are rooted in genuine integrity, and my appeals to pathos serve to illuminate the human stakes, not to mask a weak argument. The result is advocacy that persuades because it is fundamentally true.</blockquote>
+                <p><strong>Hesychia</strong>—from the Greek for stillness, quiet, and peace—is more than a name; it is my entire approach to the practice of law...</p>
+                <blockquote>Too many lawyers ask, “How do I get an outcome?” I ask, <strong>“How do we <em>earn</em> it?”</strong>...</blockquote>
             </div>
         </section>
 
@@ -288,22 +147,10 @@
             <div class="container">
                 <h2>Why Hesychia Law</h2>
                 <div class="differentiators-grid">
-                    <div class="card">
-                        <h3>A Vested Partner, Not Just a Hired Lawyer</h3>
-                        <p>I accept only cases that I find intellectually compelling and where I can make a decisive difference. This ensures your cause is championed by an advocate whose passion is aligned with your own. You deserve a lawyer who views your case as a mission, not just a file.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Aligned Incentives. Predictable Costs.</h3>
-                        <p><strong>I have eliminated the billable hour entirely.</strong> This model is broken. It incentivizes inefficiency and creates a fundamental conflict between your interests and your lawyer's. Instead, I work on fixed-fee, contingency, and success-based structures. My success is intrinsically tied to yours. When you win, I win. It’s that simple.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Soundness Over Spectacle</h3>
-                        <p>While some rely on courtroom theater, I build leverage through rigorous analysis, intellectual honesty, and clear thinking. My strategy is grounded in the merits of the case, creating a position of quiet strength that opponents respect and judges appreciate.</p>
-                    </div>
-                    <div class="card">
-                        <h3>From Zero-Sum Fights to Value-Creating Solutions</h3>
-                        <p>The best legal solutions often transcend the narrow confines of the dispute. By focusing on underlying interests rather than stated positions, I architect outcomes that create new value. An adversary can become a partner. I see these opportunities where others see only a fight to be won.</p>
-                    </div>
+                    <div class="card"><h3>A Vested Partner...</h3><p>...</p></div>
+                    <div class="card"><h3>Aligned Incentives...</h3><p>...</p></div>
+                    <div class="card"><h3>Soundness Over Spectacle...</h3><p>...</p></div>
+                    <div class="card"><h3>From Zero-Sum Fights...</h3><p>...</p></div>
                 </div>
             </div>
         </section>
@@ -311,22 +158,10 @@
         <section id="services">
             <div class="container">
                 <h2>My Services</h2>
-                <div class="service-item">
-                    <h3>A First-of-its-Kind Model for Appeals</h3>
-                    <p>I handle high-stakes appeals on a contingency basis, believing you should pay for results, not effort. This model, rare in appellate practice, requires supreme confidence in the ability to identify legal error and craft winning arguments. You invest nothing unless I succeed in reversing an adverse decision or securing a favorable outcome.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Building an Appeal-Proof Case from Day One</h3>
-                    <p>The strongest appeals are built long before a notice of appeal is filed. I embed with trial teams to ensure every argument is preserved, every objection is perfected, and the entire record is constructed with the appellate court in mind. This strategic foresight is often the difference between a temporary setback and an irreversible loss.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Success-Based Motions to End Litigation</h3>
-                    <p>I draft and argue case-ending dispositive motions—motions to dismiss and for summary judgment—on a success-fee basis. My compensation is contingent on achieving the goal: ending the litigation decisively and efficiently, saving you the cost and uncertainty of trial.</p>
-                </div>
-                 <div class="service-item">
-                    <h3>Strategic Litigation & Pro Bono Advocacy</h3>
-                    <p>I provide clear-eyed analysis of legal positions to help clients navigate complex disputes with confidence. A substantial portion of my practice is also dedicated to pro bono work, because I believe access to thoughtful, committed legal representation shouldn’t depend on the ability to pay.</p>
-                </div>
+                <div class="service-item"><h3>A First-of-its-Kind Model for Appeals...</h3><p>...</p></div>
+                <div class="service-item"><h3>Building an Appeal-Proof Case...</h3><p>...</p></div>
+                <div class="service-item"><h3>Success-Based Motions...</h3><p>...</p></div>
+                <div class="service-item"><h3>Strategic Litigation & Pro Bono Advocacy...</h3><p>...</p></div>
             </div>
         </section>
         
@@ -334,32 +169,31 @@
             <div class="container">
                 <h2>About Newman Nahas</h2>
                 <div class="about-grid">
-                    <div class="about-credentials">
-                        <h3>Credentials</h3>
-                        <ul>
-                            <li>Rhodes Scholar, Oxford University</li>
-                            <li>M.Phil. Philosophy & Religion</li>
-                            <li>J.D., Harvard Law School</li>
-                            <li>Admitted in California & Texas</li>
-                        </ul>
-                        <h3 style="margin-top: 2rem;">My Promise To You</h3>
-                        <p><strong>Radical Transparency:</strong> Our incentives will be perfectly aligned. My only goal is to achieve the best possible outcome for you.</p>
-                        <p><strong>Intellectual Integrity:</strong> I will tell you what you need to hear, not merely what you want to hear.</p>
-                        <p><strong>Focus on the Signal:</strong> I identify the core issues that will actually determine the outcome. I deliver signal, not noise.</p>
+                    <div class="about-photo-container">
+                        <img src="https://via.placeholder.com/300x350" alt="Newman Nahas" class="about-photo">
+                        
+                        <div class="about-credentials" style="margin-top: 2rem;">
+                            <h3>Credentials</h3>
+                            <ul>
+                                <li>Rhodes Scholar, Oxford University</li>
+                                <li>M.Phil. Philosophy & Religion</li>
+                                <li>J.D., Harvard Law School</li>
+                                <li>Admitted in California & Texas</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="about-bio">
-                        <p>My approach to law is the direct result of a unique intellectual journey. As a Rhodes Scholar at Oxford, I studied philosophy and religion, training my mind to deconstruct complex systems of thought and find the core argument beneath the surface. At Harvard Law School, I learned to apply that same analytical rigor to legal doctrine.</p>
-                        <p>This fusion of philosophical inquiry and legal expertise is my core strength. It allows me to see cases from multiple perspectives, spot issues others miss, and build arguments with a clarity and logical force that resonates with judges.</p>
+                        <p>My approach to law is the direct result of a unique intellectual journey...</p>
                         
                         <h3>A Record of Reversals & Landmark Wins</h3>
                         <ul class="key-matters-list">
-                            <li>Obtained reversal of a <strong>$75 million judgment</strong> for energy company in Texas state court.</li>
-                            <li>Secured reversals of trial court denials of special appearances for out-of-state telecom company and Swedish manufacturer.</li>
-                            <li>Reversed denial of motion to dismiss on causation issues for telecom company before Fifth Circuit.</li>
-                            <li>Secured directed verdict on all counterclaims in <strong>$100M+ contract case</strong> during two-week trial.</li>
-                            <li>Helped secure <strong>$2.85 billion settlement</strong> in antitrust case for credit-card network.</li>
-                            <li>Obtained dismissal and voiding of <strong>~$200 million default judgment</strong> in jurisdiction challenge for Australian power company.</li>
-                            <li>Represented elected official on First Amendment questions in U.S. Supreme Court merits briefing.</li>
+                            <li>Obtained reversal of a <strong>$75 million judgment</strong>...</li>
+                            <li>Secured reversals of trial court denials...</li>
+                            <li>Reversed denial of motion to dismiss...</li>
+                            <li>Secured directed verdict...</li>
+                            <li>Helped secure <strong>$2.85 billion settlement</strong>...</li>
+                            <li>Obtained dismissal and voiding of <strong>~$200 million default judgment</strong>...</li>
+                            <li>Represented elected official on First Amendment questions...</li>
                         </ul>
                     </div>
                 </div>
@@ -369,8 +203,7 @@
         <section id="contact" class="contact-section">
             <div class="container">
                 <h2>Contact</h2>
-                <p>For complex challenges that demand more than conventional advocacy.</p>
-                <p>I am selective because my clients deserve an advocate who is fully invested in their cause. If you are facing a high-stakes appeal, a critical motion, or a dispute that requires creative, first-principles thinking, I invite you to begin the conversation.</p>
+                <p>For complex challenges that demand more than conventional advocacy...</p>
                 <div class="contact-info">
                     <p>Email: <a href="mailto:nnahas@hesychialaw.com">nnahas@hesychialaw.com</a></p>
                     <p>Phone: <a href="tel:917-744-3555">917-744-3555</a></p>
@@ -387,24 +220,6 @@
             <p style="font-size: 0.8rem; opacity: 0.6; margin-top:1rem;">This is attorney advertising. Past results do not guarantee future outcomes.</p>
         </div>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+    
 </body>
 </html>
