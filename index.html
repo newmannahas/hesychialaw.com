@@ -3,204 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HESYCHIA | Strength in Stillness</title>
-    <meta name="description" content="Where quiet contemplation meets powerful advocacy. Revolutionary legal practice.">
+    <title>Hesychia Law PLLC | Strength in Soundness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="bg-animation">
-        <div class="floating-orb"></div>
-        <div class="floating-orb"></div>
-        <div class="floating-orb"></div>
-    </div>
 
-    <div class="cursor" id="cursor"></div>
-    
-    <div class="noise"></div>
-
-    <header>
-        <div class="header-quote">
-            "Understand – through the stillness, Act – out of the stillness, Conquer – in the stillness." – Dag Hammarskjöld
+    <nav>
+        <div class="container">
+            <a href="#philosophy">Philosophy</a>
+            <a href="#why">Why Hesychia</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </div>
-        <nav id="navbar" role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <a href="#" class="logo">Hesychia Law <small>PLLC</small></a>
-                <button class="menu-trigger" id="menuTrigger" aria-controls="menu" aria-expanded="false">MENU</button>
-            </div>
-        </nav>
+    </nav>
+
+    <header class="hero" id="home">
+        <h1>HESYCHIA LAW PLLC</h1>
+        <p class="tagline">Strength in Soundness.</p>
     </header>
 
     <main>
-        <div class="menu-overlay" id="menu" role="dialog" aria-modal="false" tabindex="-1">
-            <button class="menu-close" id="menuClose" aria-label="Close menu">&times;</button>
-            <ul class="menu-items">
-                <li><a href="#philosophy" class="menu-link">PHILOSOPHY</a></li>
-                <li><a href="#services" class="menu-link">SERVICES</a></li>
-                <li><a href="#about" class="menu-link">ABOUT</a></li>
-                <li><a href="#contact" class="menu-link">CONTACT</a></li>
-            </ul>
-        </div>
-
-        <section class="hero" id="home">
-            <div class="floating-text">STILLNESS</div>
-            <div class="floating-text" style="top: 15%; right: 10%; animation-delay: 8s;">STRENGTH</div>
-            <div class="floating-text" style="bottom: 25%; left: 15%; animation-delay: 16s;">SOUNDNESS</div>
-            <div class="hero-content">
-                <h1>
-                    <span>Newman Nahas</span>
-                    Hesychia Law
-                </h1>
-                <p class="tagline">WHERE QUIET CONTEMPLATION MEETS POWERFUL ADVOCACY</p>
-                <p class="signal-noise">There is too much noise in the practice of law, and too little signal.<br>It is time to change that.</p>
-                <a href="#contact" class="cta-button">BEGIN THE CONVERSATION</a>
+        <section id="philosophy">
+            <div class="container">
+                <h2>My Philosophy</h2>
+                <p><strong>Hesychia</strong>—from the Greek for stillness, quiet, and peace—is more than a name; it is my entire approach to the practice of law. I believe the most powerful advocacy arises not from noise and conflict, but from the clarity that can only be found in quiet contemplation. While others escalate, I resolve.</p>
+                <p>My persuasion is built on the classical foundations: <code>logos</code> (logic), <code>ethos</code> (credibility), and <code>pathos</code> (values). But for me, <strong><code>logos</code>—unshakable soundness of reasoning—is the bedrock.</strong> When your case stands on solid ground, you are immune to procedural gamesmanship and litigation theater. You gain the peace of mind that comes from knowing your position can withstand any assault.</p>
+                <blockquote>Too many lawyers ask, “How do I get an outcome?” I ask, <strong>“How do we <em>earn</em> it?”</strong> This is the essence of soundness. It means my appeals to ethos are rooted in genuine integrity, and my appeals to pathos serve to illuminate the human stakes, not to mask a weak argument. The result is advocacy that persuades because it is fundamentally true.</blockquote>
             </div>
         </section>
 
-        <section class="philosophy" id="philosophy">
-            <div class="philosophy-content">
-                <div class="philosophy-text">
-                    <h2>Too many lawyers create <span>noise</span>.<br>I create clarity.</h2>
-                    <p>Hesychia—from the Greek for stillness, quiet, and peace—represents a revolutionary approach to legal practice.</p>
-                    <p>While others escalate, I resolve. While others rely on rhetoric and theatrics, I build leverage through rigor and clear thinking that opponents respect and judges appreciate.</p>
-                    <p>My advocacy is built on the classical foundations: <span>logos</span> (logic), <span>ethos</span> (credibility), and <span>pathos</span> (empathy). But soundness of reasoning is the bedrock that makes everything else possible.</p>
-                    <p>In the stillness, I see opportunities others miss. I seek win-win solutions that create value beyond the dispute itself.</p>
-                </div>
-                <div class="philosophy-visual">
-                    <div class="philosophy-circle"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="services" id="services">
-            <h2>HOW I ADD VALUE</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-number">01</div>
-                    <h3 class="service-title">CONTINGENCY APPEALS</h3>
-                    <p class="service-description">I have secured reversals in cases where other lawyers gave no hope. Only pay if I achieve the pre-defined outcome.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">02</div>
-                    <h3 class="service-title">CASE-ENDING MOTIONS</h3>
-                    <p class="service-description">I craft motions to dismiss and summary judgment motions that actually work. Win the motion, or don't pay the premium.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">03</div>
-                    <h3 class="service-title">APPEAL-PROOF STRATEGY</h3>
-                    <p class="service-description">I join cases pre-filing to craft petitions and answers that anticipate appellate scrutiny. Spot issues others miss.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">04</div>
-                    <h3 class="service-title">APPELLATE LAWYER AT TRIAL</h3>
-                    <p class="service-description">You handle witnesses; I handle the law. Preserve error, draft jury charges, ensure today's win survives appeal.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">05</div>
-                    <h3 class="service-title">STRATEGIC COUNSEL</h3>
-                    <p class="service-description">Sometimes you need a second brain. I provide unconventional solutions for complex disputes.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">06</div>
-                    <h3 class="service-title">VALUE CREATION</h3>
-                    <p class="service-description">Blessed are the peacemakers. I seek win-win solutions that transcend the dispute itself.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="quote-section">
-            <div class="quote">
-                Too many lawyers ask, "What do I do to <span>get</span> an outcome?"<br>
-                I ask, "What should I do to <span>deserve</span> an outcome?"
-            </div>
-        </section>
-
-        <section class="engagements" id="engagements">
-            <div class="engagements-content">
-                <h2>REPRESENTATIVE MATTERS</h2>
-                <div class="engagements-grid">
-                    <div class="engagement">
-                        <div class="engagement-amount">E-Signature Litigation</div>
-                        <div class="engagement-description">Petition for Review, Texas Supreme Court. Representing client in matter addressing what constitutes valid contract execution in the digital age.</div>
+        <section id="why">
+            <div class="container">
+                <h2>Why Hesychia Law</h2>
+                <div class="differentiators-grid">
+                    <div class="card">
+                        <h3>A Vested Partner, Not Just a Hired Lawyer</h3>
+                        <p>I accept only cases that I find intellectually compelling and where I can make a decisive difference. This ensures your cause is championed by an advocate whose passion is aligned with your own. You deserve a lawyer who views your case as a mission, not just a file.</p>
                     </div>
-                    <div class="engagement">
-                        <div class="engagement-amount">First Amendment</div>
-                        <div class="engagement-description">Secured writ of certiorari to address the boundaries between expressive conduct and pure expression for First Amendment purposes.</div>
+                    <div class="card">
+                        <h3>Aligned Incentives. Predictable Costs.</h3>
+                        <p><strong>I have eliminated the billable hour entirely.</strong> This model is broken. It incentivizes inefficiency and creates a fundamental conflict between your interests and your lawyer's. Instead, I work on fixed-fee, contingency, and success-based structures. My success is intrinsically tied to yours. When you win, I win. It’s that simple.</p>
                     </div>
-                    <div class="engagement">
-                        <div class="engagement-amount">Securities Fraud</div>
-                        <div class="engagement-description">Secured complete dismissal and affirmance in one of the largest stock-drop cases in history alleging $28 billion in damages.</div>
+                    <div class="card">
+                        <h3>Soundness Over Spectacle</h3>
+                        <p>While some rely on courtroom theater, I build leverage through rigorous analysis, intellectual honesty, and clear thinking. My strategy is grounded in the merits of the case, creating a position of quiet strength that opponents respect and judges appreciate.</p>
                     </div>
-                    <div class="engagement">
-                        <div class="engagement-amount">Commercial Contract</div>
-                        <div class="engagement-description">Secured directed verdict dismissing $130 million in claims on the eve of jury charge in high-stakes breach of contract dispute.</div>
-                    </div>
-                    <div class="engagement">
-                        <div class="engagement-amount">Jurisdictional Challenges</div>
-                        <div class="engagement-description">Secured reversal of multiple decisions finding jurisdiction over non-resident entities based on erroneous interpretation of specific jurisdiction requirements.</div>
-                    </div>
-                    <div class="engagement">
-                        <div class="engagement-amount">Negligence & Causation</div>
-                        <div class="engagement-description">Secured interlocutory appeal and reversal before the Fifth Circuit concerning the requirements of proximate causation in high-stakes matter.</div>
-                    </div>
-                    <div class="engagement">
-                        <div class="engagement-amount">Antitrust</div>
-                        <div class="engagement-description">Part of team that secured the largest antitrust settlement in history—approximately $3 billion—on the eve of trial.</div>
+                    <div class="card">
+                        <h3>From Zero-Sum Fights to Value-Creating Solutions</h3>
+                        <p>The best legal solutions often transcend the narrow confines of the dispute. By focusing on underlying interests rather than stated positions, I architect outcomes that create new value. An adversary can become a partner. I see these opportunities where others see only a fight to be won.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="about" id="about">
-            <div class="about-content">
-                <div class="credentials">
-                    <h3>CREDENTIALS</h3>
-                    <ul class="credentials-list">
-                        <li>Rhodes Scholar, Oxford, M.Phil. Philosophy & Religion</li>
-                        <li>J.D., Harvard Law School</li>
-                        <li>B.A., University of Florida, Valedictorian</li>
-                        <li>Admitted: CA, TX & NY</li>
-                    </ul>
+        <section id="services">
+            <div class="container">
+                <h2>My Services</h2>
+                <div class="service-item">
+                    <h3>A First-of-its-Kind Model for Appeals</h3>
+                    <p>I handle high-stakes appeals on a contingency basis, believing you should pay for results, not effort. This model, rare in appellate practice, requires supreme confidence in the ability to identify legal error and craft winning arguments. You invest nothing unless I succeed in reversing an adverse decision or securing a favorable outcome.</p>
                 </div>
-                <div class="bio">
-                    <h2>NEWMAN NAHAS</h2>
-                    <p>My approach to law flows from a unique intellectual journey. As a Rhodes Scholar at Oxford studying philosophy and religion, I trained my mind to deconstruct complex systems of thought.</p>
-                    <p>At Harvard Law School, I learned to apply that analytical rigor to legal doctrine. The result is a practice that sees beyond surface arguments to fundamental principles.</p>
-                    <div class="achievements">
-                        <div class="achievement">
-                            <div class="achievement-amount">$200M+</div>
-                            <div class="achievement-description">Judgments reversed or dismissed</div>
-                        </div>
-                        <div class="achievement">
-                            <div class="achievement-amount">$2.85B</div>
-                            <div class="achievement-description">Largest settlement secured</div>
-                        </div>
-                        <div class="achievement">
-                            <div class="achievement-amount">387%</div>
-                            <div class="achievement-description">Average client ROI</div>
-                        </div>
-                    </div>
+                <div class="service-item">
+                    <h3>Building an Appeal-Proof Case from Day One</h3>
+                    <p>The strongest appeals are built long before a notice of appeal is filed. I embed with trial teams to ensure every argument is preserved, every objection is perfected, and the entire record is constructed with the appellate court in mind. This strategic foresight is often the difference between a temporary setback and an irreversible loss.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Success-Based Motions to End Litigation</h3>
+                    <p>I draft and argue case-ending dispositive motions—motions to dismiss and for summary judgment—on a success-fee basis. My compensation is contingent on achieving the goal: ending the litigation decisively and efficiently, saving you the cost and uncertainty of trial.</p>
+                </div>
+                 <div class="service-item">
+                    <h3>Strategic Litigation & Pro Bono Advocacy</h3>
+                    <p>I provide clear-eyed analysis of legal positions to help clients navigate complex disputes with confidence. A substantial portion of my practice is also dedicated to pro bono work, because I believe access to thoughtful, committed legal representation shouldn’t depend on the ability to pay.</p>
                 </div>
             </div>
         </section>
-
-        <section class="contact" id="contact">
-            <div class="contact-content">
-                <h2>BEGIN THE<br>CONVERSATION</h2>
-                <div class="contact-info">
-                    <a href="mailto:nnahas@hesychialaw.com">nnahas@hesychialaw.com</a>
-                </div>
-                <div class="contact-info">
-                    <a href="tel:917-744-3555">917.744.3555</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 HESYCHIA LAW PLLC. ATTORNEY ADVERTISING.</p>
-        <p><a href="privacy.html">Privacy & Terms</a></p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        
+        <section id="about">
+            <div class="container">
+                <h2>About Newman Nahas</h2>
+                <div class="about-grid">
+                    <div class="about-credentials">
+                        <h3>Credentials</h3>
+                        <ul>
+                            <li>Rhodes Scholar, Oxford University</li>
+                            <li>M.Phil. Philosophy & Religion</li>
+                            <li>J.D., Harvard Law School</li>
+                            <li>Admitted in
