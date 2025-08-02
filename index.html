@@ -263,6 +263,18 @@
         opacity: 0.7;
     }
 
+    /* Invisible hover area extension */
+    .venn-circle::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        right: -30px;
+        bottom: -30px;
+        border-radius: 50%;
+        z-index: -1;
+    }
+
     .venn-circle:hover {
         opacity: 1;
         transform: scale(1.05);
@@ -1356,7 +1368,11 @@
     });
 
     // Interactive Rhetoric Circles
+    let rhetoricTimeout;
+    
     function showRhetoricDetail(type) {
+        clearTimeout(rhetoricTimeout);
+        
         const explanations = document.querySelectorAll('.rhetoric-explanation');
         const prompt = document.getElementById('rhetoric-prompt');
         const circles = document.querySelectorAll('.venn-circle');
@@ -1372,13 +1388,15 @@
     }
     
     function hideRhetoricDetail() {
-        const explanations = document.querySelectorAll('.rhetoric-explanation');
-        const prompt = document.getElementById('rhetoric-prompt');
-        const circles = document.querySelectorAll('.venn-circle');
-        
-        explanations.forEach(exp => exp.classList.remove('active'));
-        circles.forEach(circle => circle.classList.remove('active'));
-        prompt.classList.remove('hidden');
+        rhetoricTimeout = setTimeout(() => {
+            const explanations = document.querySelectorAll('.rhetoric-explanation');
+            const prompt = document.getElementById('rhetoric-prompt');
+            const circles = document.querySelectorAll('.venn-circle');
+            
+            explanations.forEach(exp => exp.classList.remove('active'));
+            circles.forEach(circle => circle.classList.remove('active'));
+            prompt.classList.remove('hidden');
+        }, 200); // 200ms delay before hiding
     }
 
     // Service cards interactive functionality
