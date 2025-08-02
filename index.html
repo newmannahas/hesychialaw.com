@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+// Service card toggle functionality
+        function toggleService(card) {
+            card.classList.toggle('active');
+        }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -474,21 +477,47 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
+        .service-header {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .service-header:hover .service-icon {
+            transform: scale(1.1);
+        }
+
         .service-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
             color: var(--pale-blue);
+            transition: transform 0.3s ease;
         }
 
         .service-card h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             color: var(--white);
+            transition: all 0.3s ease;
         }
 
         .service-card p {
             font-size: 0.95rem;
             text-align: left;
             color: var(--pale-blue);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 0;
+        }
+
+        .service-card.active p {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 1rem;
+        }
+
+        .service-card.active h3 {
+            margin-bottom: 0.5rem;
         }
 
         /* --- About Section --- */
@@ -849,10 +878,7 @@
                     <h2 style="color: var(--primary-blue); margin-bottom: 2rem;">Why <span class="small-caps">Hesychia Law</span></h2>
                     <div style="background: linear-gradient(135deg, rgba(26, 58, 92, 0.03) 0%, rgba(212, 226, 241, 0.2) 100%); padding: 3rem; border-radius: 15px; border-left: 5px solid var(--primary-blue);">
                         <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem; font-weight: 300;">
-                            After nearly two decades at some of the world's largest and most distinguished law firms, Newman Nahas founded <span class="small-caps" style="font-weight: 500;">Hesychia Law</span> to focus exclusively on what he loves doing.
-                        </p>
-                        <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 0; font-weight: 300;">
-                            Spotting the outcome-determinative issues, creative and clear thinking, and appellate advocacy that delivers results against the longest of odds.
+                            Newman Nahas left behind two decades at the world's most elite law firms for one reason: to focus exclusively on what he does best. Spot the issue that changes everything. Find the argument others miss. Win the cases others won't take.
                         </p>
                     </div>
                 </div>
@@ -868,11 +894,11 @@
                     
                     <div style="background-color: var(--white); padding: 3rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
                         <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem;">
-                            "Hesychia"—from the Greek for inner calmness, stillness, or peace—represents a new vision for the practice of law. In litigation, storms are inevitable—opposing counsel manufactures crises, deadlines compress, stakes escalate. Most lawyers meet turbulence with more turbulence.
+                            "Hesychia" comes from the Greek for inner calmness, stillness, or peace. And it suggests a new vision for the practice of law. In litigation, storms are inevitable—opposing counsel manufactures crises, deadlines compress, stakes escalate. Most lawyers meet turbulence with more turbulence.
                         </p>
                         
                         <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem;">
-                            But strength lies in finding the still point at the center of the storm. From this place of inner calmness, you see what others miss: the single issue that will determine the outcome, the overlooked precedent that changes everything, the simple truth obscured by complexity.
+                            But strength lies in finding the still point at the center of the storm. From there, you see what others miss: the single issue that will determine the outcome, the overlooked precedent that changes everything, the simple truth obscured by complexity.
                         </p>
                         
                         <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 0;">
@@ -887,6 +913,19 @@
             <div class="container">
                 <div class="philosophy-intro">
                     <h2>New Firm, Timeless Principles</h2>
+                    <div style="max-width: 800px; margin: 3rem auto;">
+                        <div style="position: relative; padding: 3rem 2rem; text-align: center;">
+                            <p style="font-size: 1.8rem; line-height: 1.4; color: var(--primary-blue); font-family: 'Playfair Display', serif; font-style: italic; margin: 0; position: relative; z-index: 1;">
+                                Effective advocacy comes from the 
+                                <span style="color: var(--dark-blue); font-weight: 700;">heart</span> 
+                                through the 
+                                <span style="color: var(--accent-blue); font-weight: 700;">mind</span> 
+                                and speaks to the 
+                                <span style="color: var(--primary-blue); font-weight: 700;">soul</span>.
+                            </p>
+                            <div style="position: absolute; top: 50%; left: 10%; right: 10%; height: 1px; background: linear-gradient(to right, transparent, var(--pale-blue), transparent); z-index: 0;"></div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="rhetoric-venn">
@@ -905,21 +944,21 @@
                 
                 <div class="rhetoric-explanation-container">
                     <div class="rhetoric-explanation" id="ethos-explanation">
-                        <h3 style="color: #1a3a5c;">Ethos — Credibility</h3>
+                        <h3 style="color: #1a3a5c;">Credibility</h3>
                         <p>It's hard to persuade someone if you have a track record of overstating. Effective advocacy requires a track record of integrity.</p>
                     </div>
                     
                     <div class="rhetoric-explanation" id="logos-explanation">
-                        <h3 style="color: #2c5282;">Logos — Logic</h3>
+                        <h3 style="color: #2c5282;">Soundness</h3>
                         <p>It's hard to persuade someone if you're wrong. Effective advocacy requires thinking soundly and honestly.</p>
                     </div>
                     
                     <div class="rhetoric-explanation" id="pathos-explanation">
-                        <h3 style="color: #0f2844;">Pathos — Empathy</h3>
+                        <h3 style="color: #0f2844;">Empathy</h3>
                         <p>It's hard to persuade someone if you can't illuminate the human stakes. Effective advocacy requires empathy.</p>
                     </div>
                     
-                    <p class="rhetoric-prompt" id="rhetoric-prompt">Hover over each principle to explore</p>
+                    <p class="rhetoric-prompt" id="rhetoric-prompt">Explore each principle</p>
                 </div>
             </div>
         </section>
@@ -931,7 +970,7 @@
                     <div class="service-card">
                         <div class="service-icon">⚖️</div>
                         <h3>When the Odds are Long and Stakes High</h3>
-                        <p>Handle your hardest appeals. Newman has built a reputation for reversing adverse decisions and preserving crucial victories in state and federal appellate courts.</p>
+                        <p>Handle your hardest appeals.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🛡️</div>
@@ -951,12 +990,12 @@
                     <div class="service-card">
                         <div class="service-icon">⚡</div>
                         <h3>Appellate Lawyer at Trial</h3>
-                        <p>Go into the trenches with you. Partner with trial counsel—they handle the theatrics, Newman handles the law: pre-trial prep, pre-trial motions, jury charge, post-trial motions.</p>
+                        <p>Go into the trenches with you. Partner with trial counsel—they handle the theatrics, Newman handles the law.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🕊️</div>
                         <h3>Making Peace</h3>
-                        <p>Find win-win solutions that grow the pie. Transform conflict into opportunity by creating value that leaves everyone better off. These solutions are more common than you might think—what's not common is incentivizing lawyers to find them.</p>
+                        <p>Find win-win solutions that grow the pie. These solutions are more common than you might think—what's not common is incentivizing lawyers to find them.</p>
                     </div>
                 </div>
             </div>
@@ -998,36 +1037,39 @@
                         
                         <div class="story-section">
                             <h4>The Foundation</h4>
-                            <p>As an undergrad, Newman took courses across thirteen disciplines—from upper-level physics to modern poetry—and graduated first in his class. His post-grad research at Oxford focused on issues at the intersection of science, philosophy, and religion.</p>
+                            <p>First in his class. Physics to philosophy. Newman's undergraduate years spanned thirteen disciplines, building the interdisciplinary foundation that defines his practice today. At Oxford, his research explored where science, philosophy, and religion converge.</p>
                         </div>
 
                         <div class="story-section">
                             <h4>The Legal Journey</h4>
-                            <p>At Harvard Law School, Newman served as a teaching fellow for Michael Sandel's "Justice." That experience impacted how he thinks about the law and persuasion perhaps more than any single course at law school. Since then, he has worked at America's top law firms, spanning multiple jurisdictions, industries, and practice areas.</p>
+                            <p>Teaching for Michael Sandel at Harvard Law changed everything. That experience—helping students grapple with justice itself—shapes how Newman approaches every case. Two decades at elite firms followed, but the lesson remained: true persuasion comes from understanding, not arguing, and deserving, not demanding.</p>
                         </div>
 
                         <div class="story-section">
                             <h4>The Approach in Action</h4>
-                            <p>When plaintiffs filed a securities class action against BofA seeking $10B in damages, Newman devoured accounting literature to develop a novel argument that got the case dismissed before a single document was produced.</p>
+                            <p>$10 billion at stake. Newman devoured accounting literature to find the fallacy in the plaintiff's claim that killed the case before discovery began.</p>
                             
-                            <p>When he joined—on the eve of trial—the team enforcing a Honeywell patent, he quickly translated complex electricity and magnetism issues into jury-friendly terms.</p>
+                            <p>Days before trial on a Honeywell patent? He transformed electromagnetic complexity into jury-ready clarity.</p>
                             
-                            <p>The constant has been the creativity and interdisciplinary perspective Newman brings to solving complex problems.</p>
+                            <p>This is the Hesychia difference: seeing connections others miss.</p>
                         </div>
                         
                         <div class="promises-container">
                             <h3><span class="small-caps">Hesychia Law</span> Promises</h3>
                             <ul class="promises-list">
                                 <li>
-                                    <span class="promise-title">Selective Representation</span>
-                                    I will only take cases I am genuinely interested in and convinced I can add value. You deserve a lawyer whose heart is in it. If mine is not, I will help you find one whose is.
+                                    <span class="promise-title">PASSION</span>
+                                    <span style="display: block; font-weight: 600; margin-bottom: 0.3rem;">Selective Representation</span>
+                                    I will only take cases I am genuinely interested in and to which I can add value. You deserve a lawyer whose heart is in it. If mine is not, I will help you find one whose is.
                                 </li>
                                 <li>
-                                    <span class="promise-title">Aligned Incentives</span>
+                                    <span class="promise-title">PARTNERSHIP</span>
+                                    <span style="display: block; font-weight: 600; margin-bottom: 0.3rem;">Aligned Incentives</span>
                                     I will not accept fee structures that create even the appearance of misaligned interests.
                                 </li>
                                 <li>
-                                    <span class="promise-title">Radical Candor</span>
+                                    <span class="promise-title">TRUTH</span>
+                                    <span style="display: block; font-weight: 600; margin-bottom: 0.3rem;">Radical Candor</span>
                                     I will tell you what you need to know, not what you want to hear.
                                 </li>
                             </ul>
