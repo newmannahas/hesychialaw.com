@@ -689,42 +689,60 @@
 
         /* Promises styling */
         .promises-container {
-            background-color: var(--gray-light);
-            padding: 2rem;
+            background-color: #e8f0f8;
+            padding: 3rem;
             border-radius: 10px;
             margin-top: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .promises-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .promises-list li {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
-            position: relative;
+        .promise-item {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
         }
 
-        .promise-title {
-            font-weight: 700;
-            color: var(--primary-blue);
-            display: block;
-            margin-bottom: 0.3rem;
+        .promise-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
         }
 
-        .promises-list li:before {
-            content: counter(promise-counter) ".";
-            counter-increment: promise-counter;
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-            color: var(--primary-blue);
+        .promise-icon-wrapper {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .promises-list {
-            counter-reset: promise-counter;
+        .promise-content {
+            flex: 1;
+        }
+
+        .promise-content h4 {
+            font-size: 1.2rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .promise-content p {
+            margin: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
 
         /* --- Contact Section --- */
@@ -1169,21 +1187,46 @@
                         </div>
                         
                         <div class="promises-container">
-                            <h3><span class="small-caps">Hesychia Law</span> Promises</h3>
-                            <ul class="promises-list">
-                                <li>
-                                    <span class="promise-title">Selective Representation</span>
-                                    I will only take cases I am genuinely interested in. You deserve a lawyer whose heart is in it.
-                                </li>
-                                <li>
-                                    <span class="promise-title">Aligned Incentives</span>
-                                    I will not accept fee structures that create even the appearance of misaligned interests.
-                                </li>
-                                <li>
-                                    <span class="promise-title">Radical Candor</span>
-                                    I will tell you what you need to know, not what you want to hear.
-                                </li>
-                            </ul>
+                            <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem; color: var(--primary-blue);"><span class="small-caps">Hesychia Law</span> Promises</h3>
+                            <div class="promises-list">
+                                <div class="promise-item">
+                                    <div class="promise-icon-wrapper">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="promise-content">
+                                        <h4 class="promise-title">Selective Representation</h4>
+                                        <p>I will only take cases I am genuinely interested in. You deserve a lawyer whose heart is in it.</p>
+                                    </div>
+                                </div>
+                                <div class="promise-item">
+                                    <div class="promise-icon-wrapper">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f39c12" stroke-width="2">
+                                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="promise-content">
+                                        <h4 class="promise-title">Aligned Incentives</h4>
+                                        <p>I will not accept fee structures that create even the appearance of misaligned interests.</p>
+                                    </div>
+                                </div>
+                                <div class="promise-item">
+                                    <div class="promise-icon-wrapper">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#95a5a6" stroke-width="2">
+                                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                            <circle cx="12" cy="8" r="1"></circle>
+                                            <circle cx="12" cy="12" r="1"></circle>
+                                            <circle cx="12" cy="16" r="1"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="promise-content">
+                                        <h4 class="promise-title">Radical Candor</h4>
+                                        <p>I will tell you what you need to know, not what you want to hear.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
