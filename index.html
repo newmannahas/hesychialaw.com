@@ -427,16 +427,23 @@
             opacity: 0;
         }
 
+        /* Hide mobile explanations by default */
+        .rhetoric-explanation-mobile {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .rhetoric-venn {
-                height: 420px;
+                height: 500px;
                 padding: 20px;
+                position: relative;
             }
 
             .venn-circle {
-                width: 170px;
-                height: 170px;
-                padding: 1.5rem;
+                width: 150px;
+                height: 150px;
+                padding: 1.2rem;
+                position: absolute !important;
             }
 
             /* Remove the hover area extension on mobile */
@@ -445,26 +452,27 @@
             }
 
             .venn-circle h4 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
 
+            /* Triangle formation with no overlap */
             .venn-circle.ethos {
-                top: 20px;
+                top: 30px;
                 left: 50%;
                 transform: translateX(-50%);
                 animation: floatEthosMobile 5s ease-in-out infinite;
             }
 
             .venn-circle.logos {
-                top: 150px;
-                left: 40px;
+                bottom: 80px;
+                left: 10%;
                 transform: none;
                 animation: floatLogosMobile 6s ease-in-out infinite;
             }
 
             .venn-circle.pathos {
-                top: 150px;
-                right: 40px;
+                bottom: 80px;
+                right: 10%;
                 left: auto;
                 transform: none;
                 animation: floatPathosMobile 7s ease-in-out infinite;
@@ -477,13 +485,13 @@
             }
 
             @keyframes floatLogosMobile {
-                0%, 100% { transform: translateX(0) translateY(0); }
+                0%, 100% { transform: translateY(0); }
                 33% { transform: translateX(6px) translateY(-4px); }
                 66% { transform: translateX(-4px) translateY(3px); }
             }
 
             @keyframes floatPathosMobile {
-                0%, 100% { transform: translateX(0) translateY(0); }
+                0%, 100% { transform: translateY(0); }
                 25% { transform: translateX(-5px) translateY(-5px); }
                 50% { transform: translateX(3px) translateY(-2px); }
                 75% { transform: translateX(-2px) translateY(4px); }
@@ -493,9 +501,51 @@
                 grid-template-columns: 1fr;
             }
 
+            /* Hide desktop explanation container on mobile */
             .rhetoric-explanation-container {
-                margin-top: 10px;
-                min-height: 120px;
+                display: none;
+            }
+
+            /* Show and position mobile explanation in center */
+            .rhetoric-explanation-mobile {
+                display: block;
+                position: absolute;
+                top: 38%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 280px;
+                text-align: center;
+            }
+
+            .rhetoric-explanation-content {
+                background-color: var(--white);
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+            }
+
+            .rhetoric-explanation-content.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .rhetoric-explanation-content h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--primary-blue);
+            }
+
+            .rhetoric-explanation-content p {
+                font-size: 0.85rem;
+                line-height: 1.4;
+                margin: 0;
             }
         }
 
@@ -1142,6 +1192,23 @@
                     <div class="venn-circle pathos" onmouseover="showRhetoricDetail('pathos')" onmouseout="hideRhetoricDetail()">
                         <h4>Pathos</h4>
                     </div>
+                    
+                    <div class="rhetoric-explanation-mobile">
+                        <div class="rhetoric-explanation-content" id="ethos-explanation-mobile">
+                            <h3>Credibility</h3>
+                            <p>It's hard to persuade someone if you have a track record of overstating. Effective advocacy requires a track record of integrity.</p>
+                        </div>
+                        
+                        <div class="rhetoric-explanation-content" id="logos-explanation-mobile">
+                            <h3>Soundness</h3>
+                            <p>It's hard to persuade someone if you're wrong. Effective advocacy requires thinking soundly and honestly.</p>
+                        </div>
+                        
+                        <div class="rhetoric-explanation-content" id="pathos-explanation-mobile">
+                            <h3>Empathy</h3>
+                            <p>It's hard to persuade someone if you can't illuminate the human stakes. Effective advocacy requires empathy.</p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="rhetoric-explanation-container">
@@ -1408,30 +1475,60 @@
         function showRhetoricDetail(type) {
             clearTimeout(rhetoricTimeout);
             
-            const explanations = document.querySelectorAll('.rhetoric-explanation');
-            const prompt = document.getElementById('rhetoric-prompt');
-            const circles = document.querySelectorAll('.venn-circle');
+            const isMobile = window.innerWidth <= 768;
             
-            // Hide all explanations and remove active class from all circles
-            explanations.forEach(exp => exp.classList.remove('active'));
-            circles.forEach(circle => circle.classList.remove('active'));
-            
-            // Show the relevant explanation and activate the circle
-            document.getElementById(`${type}-explanation`).classList.add('active');
-            document.querySelector(`.venn-circle.${type}`).classList.add('active');
-            prompt.classList.add('hidden');
-        }
-        
-        function hideRhetoricDetail() {
-            rhetoricTimeout = setTimeout(() => {
+            if (isMobile) {
+                // Mobile handling
+                const mobileExplanations = document.querySelectorAll('.rhetoric-explanation-content');
+                const circles = document.querySelectorAll('.venn-circle');
+                
+                // Hide all mobile explanations and remove active from circles
+                mobileExplanations.forEach(exp => exp.classList.remove('active'));
+                circles.forEach(circle => circle.classList.remove('active'));
+                
+                // Show the relevant mobile explanation
+                const mobileExp = document.getElementById(`${type}-explanation-mobile`);
+                if (mobileExp) {
+                    mobileExp.classList.add('active');
+                }
+                document.querySelector(`.venn-circle.${type}`).classList.add('active');
+            } else {
+                // Desktop handling (existing code)
                 const explanations = document.querySelectorAll('.rhetoric-explanation');
                 const prompt = document.getElementById('rhetoric-prompt');
                 const circles = document.querySelectorAll('.venn-circle');
                 
                 explanations.forEach(exp => exp.classList.remove('active'));
                 circles.forEach(circle => circle.classList.remove('active'));
-                prompt.classList.remove('hidden');
-            }, 200); // 200ms delay before hiding
+                
+                document.getElementById(`${type}-explanation`).classList.add('active');
+                document.querySelector(`.venn-circle.${type}`).classList.add('active');
+                prompt.classList.add('hidden');
+            }
+        }
+        
+        function hideRhetoricDetail() {
+            rhetoricTimeout = setTimeout(() => {
+                const isMobile = window.innerWidth <= 768;
+                
+                if (isMobile) {
+                    // Mobile handling
+                    const mobileExplanations = document.querySelectorAll('.rhetoric-explanation-content');
+                    const circles = document.querySelectorAll('.venn-circle');
+                    
+                    mobileExplanations.forEach(exp => exp.classList.remove('active'));
+                    circles.forEach(circle => circle.classList.remove('active'));
+                } else {
+                    // Desktop handling
+                    const explanations = document.querySelectorAll('.rhetoric-explanation');
+                    const prompt = document.getElementById('rhetoric-prompt');
+                    const circles = document.querySelectorAll('.venn-circle');
+                    
+                    explanations.forEach(exp => exp.classList.remove('active'));
+                    circles.forEach(circle => circle.classList.remove('active'));
+                    prompt.classList.remove('hidden');
+                }
+            }, 200);
         }
 
         // Service cards interactive functionality
