@@ -1,7 +1,4 @@
-// Service card toggle functionality
-        function toggleService(card) {
-            card.classList.toggle('active');
-        }<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -454,70 +451,146 @@
             }
         }
 
-        /* --- Services Grid --- */
-        .services-grid {
+        /* --- ENHANCED Services Section --- */
+        .services-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: start;
         }
 
-        .service-card {
+        .services-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .service-item {
             background-color: #3a6590;
-            padding: 2.5rem;
+            padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
             border-top: 4px solid var(--pale-blue);
-            text-align: center;
+            cursor: pointer;
+            position: relative;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
+        .service-item:hover {
+            transform: translateX(5px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .service-header {
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .service-item.active {
+            background-color: var(--primary-blue);
+            transform: translateX(10px);
         }
 
-        .service-header:hover .service-icon {
-            transform: scale(1.1);
+        .service-item.active::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid var(--primary-blue);
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
             color: var(--pale-blue);
-            transition: transform 0.3s ease;
         }
 
-        .service-card h3 {
-            margin-bottom: 0;
+        .service-item h3 {
+            margin: 0;
             color: var(--white);
-            transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
 
-        .service-card p {
-            font-size: 0.95rem;
-            text-align: left;
-            color: var(--pale-blue);
-            max-height: 0;
-            overflow: hidden;
+        .service-details-container {
+            position: relative;
+            min-height: 400px;
+        }
+
+        .service-detail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             opacity: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 0;
+            visibility: hidden;
+            transform: translateX(50px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .service-card.active p {
-            max-height: 200px;
+        .service-detail.active {
             opacity: 1;
-            margin-top: 1rem;
+            visibility: visible;
+            transform: translateX(0);
         }
 
-        .service-card.active h3 {
-            margin-bottom: 0.5rem;
+        .service-detail h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .service-detail p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            max-width: none;
+        }
+
+        .service-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            background-color: var(--gray-light);
+            border-radius: 10px;
+            border: 2px dashed var(--gray-border);
+        }
+
+        .service-placeholder p {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* Mobile responsiveness for services */
+        @media (max-width: 900px) {
+            .services-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-item.active::after {
+                display: none;
+            }
+
+            .service-detail {
+                position: static;
+                transform: none;
+                margin-top: 1rem;
+            }
+
+            .service-details-container {
+                min-height: auto;
+            }
         }
 
         /* --- About Section --- */
@@ -780,15 +853,6 @@
                 max-width: 280px;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .service-card {
-                padding: 2rem;
-            }
-            
             .highlight-quote {
                 font-size: 1.1rem;
                 padding-left: 1.5rem;
@@ -820,7 +884,7 @@
             }
             
             .service-icon {
-                font-size: 2.5rem;
+                font-size: 1.5rem;
             }
         }
 
@@ -878,7 +942,7 @@
                     <h2 style="color: var(--primary-blue); margin-bottom: 2rem;">Why <span class="small-caps">Hesychia Law</span></h2>
                     <div style="background: linear-gradient(135deg, rgba(26, 58, 92, 0.03) 0%, rgba(212, 226, 241, 0.2) 100%); padding: 3rem; border-radius: 15px; border-left: 5px solid var(--primary-blue);">
                         <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem; font-weight: 300;">
-                            Newman Nahas left behind two decades at the world's most elite law firms for one reason: to focus exclusively on what he does best. Spot the issue that changes everything. Find the argument others miss. Win the cases others won't take.
+                            Newman Nahas left behind two decades at the world's most elite law firms for one reason: to focus exclusively on what he loves. And what he does best: Spot the issue that changes everything. Find the argument others miss. Win the cases others won't take.
                         </p>
                     </div>
                 </div>
@@ -966,36 +1030,86 @@
         <section id="services">
             <div class="container">
                 <h2>How Can <span class="small-caps">Hesychia Law</span> Add Value?</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">⚖️</div>
-                        <h3>When the Odds are Long and Stakes High</h3>
-                        <p>Handle your hardest appeals.</p>
+                
+                <div class="services-container">
+                    <div class="services-menu">
+                        <div class="service-item" onmouseover="showService('long-odds')" onmouseleave="hideService()">
+                            <div class="service-header">
+                                <div class="service-icon">⚖️</div>
+                                <h3>When the Odds are Long and Stakes High</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item" onmouseover="showService('prevention')" onmouseleave="hideService()">
+                            <div class="service-header">
+                                <div class="service-icon">🛡️</div>
+                                <h3>An Ounce of Prevention</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item" onmouseover="showService('cut-chase')" onmouseleave="hideService()">
+                            <div class="service-header">
+                                <div class="service-icon">🎯</div>
+                                <h3>Cut to the Chase</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item" onmouseover="showService('second-opinion')" onmouseleave="hideService()">
+                            <div class="service-header">
+                                <div class="service-icon">🔍</div>
+                                <h3>A Second Opinion</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item" onmouseover="showService('appellate-trial')" onmouseleave="hideService()">
+                            <div class="service-header">
+                                <div class="service-icon">⚡</div>
+                                <h3>Appellate Lawyer at Trial</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item" onmouseover="showService('making-peace')" onmouseleave="hideService()">
+                            <div class="service-header">
+                                <div class="service-icon">🕊️</div>
+                                <h3>Making Peace</h3>
+                            </div>
+                        </div>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">🛡️</div>
-                        <h3>An Ounce of Prevention</h3>
-                        <p>Build your legal foundations. Strategic positioning before litigation can determine outcomes before a complaint is ever filed.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🎯</div>
-                        <h3>Cut to the Chase</h3>
-                        <p>Develop, draft, and argue your critical motions. Summary judgment, motions to dismiss, and other case-ending strategies—with fees tied to success.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🔍</div>
-                        <h3>A Second Opinion</h3>
-                        <p>Provide fresh perspective on intractable issues. Sometimes you need someone who is not in the weeds to see the forest.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">⚡</div>
-                        <h3>Appellate Lawyer at Trial</h3>
-                        <p>Go into the trenches with you. Partner with trial counsel—they handle the theatrics, Newman handles the law.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🕊️</div>
-                        <h3>Making Peace</h3>
-                        <p>Find win-win solutions that grow the pie. These solutions are more common than you might think—what's not common is incentivizing lawyers to find them.</p>
+                    
+                    <div class="service-details-container">
+                        <div class="service-placeholder" id="service-placeholder">
+                            <p>Hover over a service to learn more</p>
+                        </div>
+                        
+                        <div class="service-detail" id="long-odds-detail">
+                            <h3>When the Odds are Long and Stakes High</h3>
+                            <p>Handle your hardest appeals. Newman has built a reputation for reversing adverse decisions and preserving crucial victories in state and federal appellate courts. When conventional wisdom says you can't win, that's exactly when you need an unconventional approach. Newman excels at finding the overlooked argument, the novel interpretation, or the fundamental principle that transforms a losing case into a winning one.</p>
+                        </div>
+                        
+                        <div class="service-detail" id="prevention-detail">
+                            <h3>An Ounce of Prevention</h3>
+                            <p>Build your legal foundations. Strategic positioning before litigation can determine outcomes before a complaint is ever filed. From contract drafting that anticipates disputes to pre-litigation counseling that shapes the battlefield, Newman helps clients win by preventing fights they don't need and preparing for the ones they do.</p>
+                        </div>
+                        
+                        <div class="service-detail" id="cut-chase-detail">
+                            <h3>Cut to the Chase</h3>
+                            <p>Develop, draft, and argue your critical motions. Summary judgment, motions to dismiss, and other case-ending strategies—with fees tied to success. Newman focuses on the dispositive issues that can end litigation early and efficiently, saving clients time, money, and uncertainty.</p>
+                        </div>
+                        
+                        <div class="service-detail" id="second-opinion-detail">
+                            <h3>A Second Opinion</h3>
+                            <p>Provide fresh perspective on intractable issues. Sometimes you need someone who is not in the weeds to see the forest. When your team has been living with a case for months or years, Newman brings the clarity of distance combined with the insight of experience to spot solutions hiding in plain sight.</p>
+                        </div>
+                        
+                        <div class="service-detail" id="appellate-trial-detail">
+                            <h3>Appellate Lawyer at Trial</h3>
+                            <p>Go into the trenches with you. Partner with trial counsel—they handle the theatrics, Newman handles the law. By thinking about the appeal from day one of trial, Newman helps create the record that wins not just in the trial court but protects victory on appeal.</p>
+                        </div>
+                        
+                        <div class="service-detail" id="making-peace-detail">
+                            <h3>Making Peace</h3>
+                            <p>Find win-win solutions that grow the pie. These solutions are more common than you might think—what's not common is incentivizing lawyers to find them. Newman's fee structures align with finding resolutions that create value rather than destroy it, turning adversaries into partners where possible.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1036,17 +1150,17 @@
                         </div>
                         
                         <div class="story-section">
-                            <h4>The Foundation</h4>
-                            <p>First in his class. Physics to philosophy. Newman's undergraduate years spanned thirteen disciplines, building the interdisciplinary foundation that defines his practice today. At Oxford, his research explored where science, philosophy, and religion converge.</p>
+                            <h4>Before the Law</h4>
+                            <p>From physics to philosophy, Newman's undergraduate years spanned thirteen disciplines, building the interdisciplinary foundation that defines his practice today. At Oxford, his research explored where science, philosophy, and religion converge.</p>
                         </div>
 
                         <div class="story-section">
-                            <h4>The Legal Journey</h4>
-                            <p>Teaching for Michael Sandel at Harvard Law changed everything. That experience—helping students grapple with justice itself—shapes how Newman approaches every case. Two decades at elite firms followed, but the lesson remained: true persuasion comes from understanding, not arguing, and deserving, not demanding.</p>
+                            <h4>The Teaching Moment</h4>
+                            <p>Teaching for Michael Sandel at Harvard Law changed everything. That experience—helping students grapple with justice itself—shapes how Newman approaches every case. Two decades at elite firms followed, but the lesson remained: true persuasion comes from understanding, not arguing, and deserving assent, not demanding it.</p>
                         </div>
 
                         <div class="story-section">
-                            <h4>The Approach in Action</h4>
+                            <h4>Theory Meets Trial</h4>
                             <p>$10 billion at stake. Newman devoured accounting literature to find the fallacy in the plaintiff's claim that killed the case before discovery began.</p>
                             
                             <p>Days before trial on a Honeywell patent? He transformed electromagnetic complexity into jury-ready clarity.</p>
@@ -1058,18 +1172,15 @@
                             <h3><span class="small-caps">Hesychia Law</span> Promises</h3>
                             <ul class="promises-list">
                                 <li>
-                                    <span class="promise-title">PASSION</span>
-                                    <span style="display: block; font-weight: 600; margin-bottom: 0.3rem;">Selective Representation</span>
-                                    I will only take cases I am genuinely interested in and to which I can add value. You deserve a lawyer whose heart is in it. If mine is not, I will help you find one whose is.
+                                    <span class="promise-title">Selective Representation</span>
+                                    I will only take cases I am genuinely interested in. You deserve a lawyer whose heart is in it.
                                 </li>
                                 <li>
-                                    <span class="promise-title">PARTNERSHIP</span>
-                                    <span style="display: block; font-weight: 600; margin-bottom: 0.3rem;">Aligned Incentives</span>
+                                    <span class="promise-title">Aligned Incentives</span>
                                     I will not accept fee structures that create even the appearance of misaligned interests.
                                 </li>
                                 <li>
-                                    <span class="promise-title">TRUTH</span>
-                                    <span style="display: block; font-weight: 600; margin-bottom: 0.3rem;">Radical Candor</span>
+                                    <span class="promise-title">Radical Candor</span>
                                     I will tell you what you need to know, not what you want to hear.
                                 </li>
                             </ul>
@@ -1132,7 +1243,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.service-card, .rhetoric-card, .about-content > div').forEach(el => {
+        document.querySelectorAll('.about-content > div').forEach(el => {
             observer.observe(el);
         });
 
@@ -1160,6 +1271,45 @@
             explanations.forEach(exp => exp.classList.remove('active'));
             circles.forEach(circle => circle.classList.remove('active'));
             prompt.classList.remove('hidden');
+        }
+
+        // Service cards interactive functionality
+        let currentService = null;
+
+        function showService(serviceId) {
+            const placeholder = document.getElementById('service-placeholder');
+            const allDetails = document.querySelectorAll('.service-detail');
+            const allItems = document.querySelectorAll('.service-item');
+            const targetDetail = document.getElementById(`${serviceId}-detail`);
+            const hoveredItem = event.currentTarget;
+            
+            // Hide placeholder
+            placeholder.style.display = 'none';
+            
+            // Remove active class from all items and details
+            allItems.forEach(item => item.classList.remove('active'));
+            allDetails.forEach(detail => detail.classList.remove('active'));
+            
+            // Add active class to hovered item and corresponding detail
+            hoveredItem.classList.add('active');
+            targetDetail.classList.add('active');
+            
+            currentService = serviceId;
+        }
+
+        function hideService() {
+            const placeholder = document.getElementById('service-placeholder');
+            const allDetails = document.querySelectorAll('.service-detail');
+            const allItems = document.querySelectorAll('.service-item');
+            
+            // Remove active class from all items and details
+            allItems.forEach(item => item.classList.remove('active'));
+            allDetails.forEach(detail => detail.classList.remove('active'));
+            
+            // Show placeholder again
+            placeholder.style.display = 'flex';
+            
+            currentService = null;
         }
     </script>
 </body>
