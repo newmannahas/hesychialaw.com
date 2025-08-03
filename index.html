@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,1271 +23,1288 @@
             --gray-border: #e1e8ed;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+```
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--gray-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            font-size: 16px;
-        }
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--gray-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+        font-size: 16px;
+    }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-            line-height: 1.3;
-            color: var(--primary-blue);
-        }
+    h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 400;
+        line-height: 1.3;
+        color: var(--primary-blue);
+    }
 
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
+    h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+    }
 
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+        text-align: center;
+    }
 
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark-blue);
-        }
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--dark-blue);
+    }
 
-        p {
-            margin-bottom: 1.25rem;
-            color: var(--text-light);
-            max-width: 65ch;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    p {
+        margin-bottom: 1.25rem;
+        color: var(--text-light);
+        max-width: 65ch;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        a {
-            color: var(--light-blue);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+    a {
+        color: var(--light-blue);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
 
-        a:hover {
-            color: var(--accent-blue);
-            text-decoration: underline;
-        }
+    a:hover {
+        color: var(--accent-blue);
+        text-decoration: underline;
+    }
 
-        /* Small caps style */
-        .small-caps {
-            font-variant: small-caps;
+    /* Small caps style */
+    .small-caps {
+        font-variant: small-caps;
+        letter-spacing: 0.1em;
+    }
+
+    /* --- Layout & Sections --- */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    section {
+        padding: 5rem 0;
+    }
+
+    section:nth-of-type(even) {
+        background-color: var(--gray-light);
+    }
+
+    /* --- Navigation Bar --- */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgba(15, 40, 68, 0.97);
+        backdrop-filter: blur(10px);
+        padding: 1.25rem 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    @media (max-width: 768px) {
+        nav .container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+
+    .nav-logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--white);
+        font-variant: small-caps;
+        letter-spacing: 0.15em;
+    }
+
+    .nav-logo span {
+        font-size: 0.8rem;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+        margin-left: 0.5rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+    }
+
+    .nav-links a {
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: var(--white);
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--pale-blue);
+        text-decoration: none;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+        padding-top: 8rem;
+        padding-bottom: 5rem;
+        background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+        color: var(--white);
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        color: var(--white);
+        margin-bottom: 1rem;
+        font-variant: small-caps;
+        letter-spacing: 0.2em;
+        font-size: 3rem;
+    }
+
+    .hero-tagline {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        color: var(--pale-blue);
+        font-weight: 400;
+        margin-bottom: 3rem;
+    }
+
+    .hero-quote {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 1.2rem;
+        color: var(--pale-blue);
+        margin-bottom: 3rem;
+        opacity: 0.9;
+    }
+
+    .hero-quote cite {
+        display: block;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        font-style: normal;
+        opacity: 0.8;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background-color: var(--white);
+        color: var(--primary-blue);
+        padding: 1rem 2.5rem;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        text-decoration: none;
+    }
+
+    /* --- Philosophy Section --- */
+    .philosophy-intro {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .philosophy-intro h2 {
+        color: var(--primary-blue);
+        margin-bottom: 3rem;
+    }
+
+    /* Updated Rhetoric Circles */
+    .rhetoric-venn {
+        position: relative;
+        max-width: 700px;
+        height: 450px;
+        margin: 2rem auto 2rem;
+    }
+
+    .venn-circle {
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        cursor: pointer;
+        opacity: 0.85;
+    }
+
+    .venn-circle:hover {
+        opacity: 1;
+        transform: scale(1.15);
+        z-index: 10;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .venn-circle.ethos {
+        background-color: rgba(26, 58, 92, 0.15);
+        border: 3px solid var(--primary-blue);
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounceEthos 4s ease-in-out infinite;
+    }
+
+    .venn-circle.ethos:hover {
+        transform: translateX(-50%) scale(1.15);
+        animation: none;
+    }
+
+    .venn-circle.logos {
+        background-color: rgba(45, 84, 121, 0.15);
+        border: 3px solid var(--accent-blue);
+        bottom: 0;
+        left: 15%;
+        animation: bounceLogos 4.5s ease-in-out infinite;
+    }
+
+    .venn-circle.pathos {
+        background-color: rgba(212, 226, 241, 0.3);
+        border: 3px solid var(--light-blue);
+        bottom: 0;
+        right: 15%;
+        animation: bouncePathos 5s ease-in-out infinite;
+    }
+
+    @keyframes bounceEthos {
+        0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+        50% { transform: translateX(-50%) translateY(-15px) scale(1.05); }
+    }
+
+    @keyframes bounceLogos {
+        0%, 100% { transform: translateY(0) scale(1); }
+        33% { transform: translateY(-12px) scale(1.03); }
+        66% { transform: translateY(-8px) scale(1.02); }
+    }
+
+    @keyframes bouncePathos {
+        0%, 100% { transform: translateY(0) scale(1); }
+        25% { transform: translateY(-10px) scale(1.02); }
+        50% { transform: translateY(-15px) scale(1.04); }
+        75% { transform: translateY(-8px) scale(1.02); }
+    }
+
+    .venn-circle h4 {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+    }
+
+    .rhetoric-explanation-center {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 320px;
+        text-align: center;
+        z-index: 20;
+    }
+
+    .rhetoric-explanation {
+        background-color: var(--white);
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        width: 100%;
+        transition: all 0.3s ease;
+        border: 1px solid var(--gray-border);
+    }
+
+    .rhetoric-explanation.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .rhetoric-explanation h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        font-style: italic;
+    }
+
+    .rhetoric-explanation p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    .rhetoric-prompt {
+        text-align: center;
+        color: var(--text-light);
+        font-style: italic;
+        margin-bottom: 2rem;
+    }
+
+    /* --- Services Section Updated --- */
+    .services-container {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .services-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .service-item {
+        background-color: #3a6590;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        border-top: 4px solid var(--pale-blue);
+        cursor: pointer;
+        position: relative;
+    }
+
+    .service-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-item.active {
+        background-color: var(--primary-blue);
+        transform: translateX(10px);
+    }
+
+    .service-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .service-icon {
+        font-size: 2rem;
+        color: var(--pale-blue);
+    }
+
+    .service-item h3 {
+        margin: 0;
+        color: var(--white);
+        font-size: 1.1rem;
+    }
+
+    .service-details-container {
+        position: relative;
+    }
+
+    .service-detail {
+        background-color: var(--white);
+        padding: 2.5rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.4s ease;
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .service-detail.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .service-detail h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: var(--primary-blue);
+        font-style: italic;
+    }
+
+    .service-detail p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--text-dark);
+        max-width: none;
+    }
+
+    .service-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
+        background-color: var(--gray-light);
+        border-radius: 10px;
+        border: 2px dashed var(--gray-border);
+    }
+
+    .service-placeholder p {
+        color: var(--text-light);
+        font-style: italic;
+        font-size: 1.1rem;
+    }
+
+    /* --- About Section --- */
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: start;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .about-left {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .about-photo {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        margin-top: 2rem;
+    }
+
+    .about-photo img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+    }
+
+    .credentials-box {
+        background-color: var(--pale-blue);
+        padding: 2.5rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .credentials-box h3 {
+        margin-bottom: 1.5rem;
+    }
+
+    .credentials-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .credentials-list li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        color: var(--text-dark);
+    }
+
+    .credentials-list li:last-child {
+        border-bottom: none;
+    }
+
+    .about-text {
+        position: relative;
+    }
+
+    .highlight-quote {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        font-style: italic;
+        color: var(--primary-blue);
+        margin: 2rem 0;
+        padding-left: 2rem;
+        border-left: 4px solid var(--light-blue);
+    }
+
+    .story-section {
+        margin-bottom: 2rem;
+    }
+
+    .story-section h4 {
+        font-size: 1.1rem;
+        color: var(--primary-blue);
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .promises-container {
+        background-color: #e8f0f8;
+        padding: 3rem;
+        border-radius: 10px;
+        margin-top: 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .promises-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .promise-item {
+        background-color: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 4px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .promise-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .promise-icon-wrapper {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .promise-content {
+        flex: 1;
+    }
+
+    .promise-content h4 {
+        font-size: 1.2rem;
+        color: var(--dark-blue);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .promise-content p {
+        margin: 0;
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+
+    /* --- Contact Section --- */
+    .contact-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .contact-info {
+        background-color: #3a6590;
+        padding: 3rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        margin-top: 2rem;
+    }
+
+    .contact-info h3 {
+        margin-bottom: 2rem;
+        color: var(--white);
+    }
+
+    .contact-details {
+        font-size: 1.1rem;
+        line-height: 2;
+        color: var(--pale-blue);
+    }
+
+    .contact-details a {
+        font-weight: 600;
+        color: var(--pale-blue);
+    }
+
+    .contact-details a:hover {
+        color: var(--white);
+    }
+
+    /* --- Footer --- */
+    footer {
+        background-color: var(--dark-blue);
+        color: var(--white);
+        text-align: center;
+        padding: 3rem 2rem;
+    }
+
+    footer p {
+        color: var(--white);
+        opacity: 0.9;
+    }
+
+    footer .disclaimer {
+        font-size: 0.85rem;
+        opacity: 0.7;
+        margin-top: 1.5rem;
+    }
+
+    /* --- Responsive Design --- */
+    @media (max-width: 768px) {
+        h1 { font-size: 2.2rem; }
+        h2 { font-size: 1.8rem; }
+        
+        .hero {
+            padding-top: 10rem;
+            padding-bottom: 4rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
             letter-spacing: 0.1em;
         }
-
-        /* --- Layout & Sections --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        
+        .hero-tagline {
+            font-size: 1.5rem;
         }
-
-        section {
-            padding: 5rem 0;
+        
+        .hero-quote {
+            font-size: 1rem;
+            margin-bottom: 2rem;
         }
-
-        section:nth-of-type(even) {
-            background-color: var(--gray-light);
+        
+        .services-container {
+            grid-template-columns: 1fr;
+            gap: 0;
         }
-
-        /* --- Navigation Bar --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(15, 40, 68, 0.97);
-            backdrop-filter: blur(10px);
-            padding: 1.25rem 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        
+        .services-menu {
+            gap: 0;
         }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        
+        .service-item {
+            margin-bottom: 0;
+            border-radius: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .service-item:first-child {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .service-item:last-child {
+            border-bottom: none;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        
+        .service-item {
+            position: relative;
+        }
+        
+        .service-item::after {
+            content: '+';
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--pale-blue);
+            transition: transform 0.3s ease;
+            display: none;
         }
         
         @media (max-width: 768px) {
-            nav .container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-
-        .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-            font-variant: small-caps;
-            letter-spacing: 0.15em;
-        }
-
-        .nav-logo span {
-            font-size: 0.8rem;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            margin-left: 0.5rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--white);
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--pale-blue);
-            text-decoration: none;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding-top: 8rem;
-            padding-bottom: 5rem;
-            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
-            color: var(--white);
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            color: var(--white);
-            margin-bottom: 1rem;
-            font-variant: small-caps;
-            letter-spacing: 0.2em;
-            font-size: 3rem;
-        }
-
-        .hero-tagline {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--pale-blue);
-            font-weight: 400;
-            margin-bottom: 3rem;
-        }
-
-        .hero-quote {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            color: var(--pale-blue);
-            margin-bottom: 3rem;
-            opacity: 0.9;
-        }
-
-        .hero-quote cite {
-            display: block;
-            font-size: 1rem;
-            margin-top: 0.5rem;
-            font-style: normal;
-            opacity: 0.8;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--white);
-            color: var(--primary-blue);
-            padding: 1rem 2.5rem;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            text-decoration: none;
-        }
-
-        /* --- Philosophy Section --- */
-        .philosophy-intro {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .philosophy-intro h2 {
-            color: var(--primary-blue);
-            margin-bottom: 3rem;
-        }
-
-        /* Updated Rhetoric Circles */
-        .rhetoric-venn {
-            position: relative;
-            max-width: 700px;
-            height: 450px;
-            margin: 2rem auto 2rem;
-        }
-
-        .venn-circle {
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            opacity: 0.85;
-        }
-
-        .venn-circle:hover {
-            opacity: 1;
-            transform: scale(1.15);
-            z-index: 10;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .venn-circle.ethos {
-            background-color: rgba(26, 58, 92, 0.15);
-            border: 3px solid var(--primary-blue);
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounceEthos 4s ease-in-out infinite;
-        }
-
-        .venn-circle.ethos:hover {
-            transform: translateX(-50%) scale(1.15);
-            animation: none;
-        }
-
-        .venn-circle.logos {
-            background-color: rgba(45, 84, 121, 0.15);
-            border: 3px solid var(--accent-blue);
-            bottom: 0;
-            left: 15%;
-            animation: bounceLogos 4.5s ease-in-out infinite;
-        }
-
-        .venn-circle.pathos {
-            background-color: rgba(212, 226, 241, 0.3);
-            border: 3px solid var(--light-blue);
-            bottom: 0;
-            right: 15%;
-            animation: bouncePathos 5s ease-in-out infinite;
-        }
-
-        @keyframes bounceEthos {
-            0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
-            50% { transform: translateX(-50%) translateY(-15px) scale(1.05); }
-        }
-
-        @keyframes bounceLogos {
-            0%, 100% { transform: translateY(0) scale(1); }
-            33% { transform: translateY(-12px) scale(1.03); }
-            66% { transform: translateY(-8px) scale(1.02); }
-        }
-
-        @keyframes bouncePathos {
-            0%, 100% { transform: translateY(0) scale(1); }
-            25% { transform: translateY(-10px) scale(1.02); }
-            50% { transform: translateY(-15px) scale(1.04); }
-            75% { transform: translateY(-8px) scale(1.02); }
-        }
-
-        .venn-circle h4 {
-            margin: 0;
-            font-size: 1.6rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-        }
-
-        .rhetoric-explanation-center {
-            position: absolute;
-            top: 35%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 320px;
-            text-align: center;
-            z-index: 20;
-        }
-
-        .rhetoric-explanation {
-            background-color: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-            width: 100%;
-            transition: all 0.3s ease;
-            border: 1px solid var(--gray-border);
-        }
-
-        .rhetoric-explanation.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .rhetoric-explanation h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            font-style: italic;
-        }
-
-        .rhetoric-explanation p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .rhetoric-prompt {
-            text-align: center;
-            color: var(--text-light);
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
-
-        /* --- Services Section Updated --- */
-        .services-container {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .services-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .service-item {
-            background-color: #3a6590;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--pale-blue);
-            cursor: pointer;
-            position: relative;
-        }
-
-        .service-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-item.active {
-            background-color: var(--primary-blue);
-            transform: translateX(10px);
-        }
-
-        .service-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .service-icon {
-            font-size: 2rem;
-            color: var(--pale-blue);
-        }
-
-        .service-item h3 {
-            margin: 0;
-            color: var(--white);
-            font-size: 1.1rem;
-        }
-
-        .service-details-container {
-            position: relative;
-        }
-
-        .service-detail {
-            background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: all 0.4s ease;
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-        }
-
-        .service-detail.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-detail h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary-blue);
-            font-style: italic;
-        }
-
-        .service-detail p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-dark);
-            max-width: none;
-        }
-
-        .service-placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 300px;
-            background-color: var(--gray-light);
-            border-radius: 10px;
-            border: 2px dashed var(--gray-border);
-        }
-
-        .service-placeholder p {
-            color: var(--text-light);
-            font-style: italic;
-            font-size: 1.1rem;
-        }
-
-        /* --- About Section --- */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: start;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .about-left {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .about-photo {
-            width: 100%;
-            max-width: 350px;
-            margin: 0 auto;
-            margin-top: 2rem;
-        }
-
-        .about-photo img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
-        }
-
-        .credentials-box {
-            background-color: var(--pale-blue);
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .credentials-box h3 {
-            margin-bottom: 1.5rem;
-        }
-
-        .credentials-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .credentials-list li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            color: var(--text-dark);
-        }
-
-        .credentials-list li:last-child {
-            border-bottom: none;
-        }
-
-        .about-text {
-            position: relative;
-        }
-
-        .highlight-quote {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--primary-blue);
-            margin: 2rem 0;
-            padding-left: 2rem;
-            border-left: 4px solid var(--light-blue);
-        }
-
-        .story-section {
-            margin-bottom: 2rem;
-        }
-
-        .story-section h4 {
-            font-size: 1.1rem;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .promises-container {
-            background-color: #e8f0f8;
-            padding: 3rem;
-            border-radius: 10px;
-            margin-top: 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .promises-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .promise-item {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border-left: 4px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .promise-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-        }
-
-        .promise-icon-wrapper {
-            flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .promise-content {
-            flex: 1;
-        }
-
-        .promise-content h4 {
-            font-size: 1.2rem;
-            color: var(--dark-blue);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .promise-content p {
-            margin: 0;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* --- Contact Section --- */
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            background-color: #3a6590;
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            margin-top: 2rem;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 2rem;
-            color: var(--white);
-        }
-
-        .contact-details {
-            font-size: 1.1rem;
-            line-height: 2;
-            color: var(--pale-blue);
-        }
-
-        .contact-details a {
-            font-weight: 600;
-            color: var(--pale-blue);
-        }
-
-        .contact-details a:hover {
-            color: var(--white);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--dark-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        footer p {
-            color: var(--white);
-            opacity: 0.9;
-        }
-
-        footer .disclaimer {
-            font-size: 0.85rem;
-            opacity: 0.7;
-            margin-top: 1.5rem;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            
-            .hero {
-                padding-top: 10rem;
-                padding-bottom: 4rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-                letter-spacing: 0.1em;
-            }
-            
-            .hero-tagline {
-                font-size: 1.5rem;
-            }
-            
-            .hero-quote {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-            
-            .services-container {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-            
-            .services-menu {
-                gap: 0;
-            }
-            
-            .service-item {
-                margin-bottom: 0;
-                border-radius: 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .service-item:first-child {
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
-            }
-            
             .service-item::after {
-                content: '+';
-                position: absolute;
-                right: 1.5rem;
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: 1.8rem;
-                font-weight: 300;
-                color: var(--pale-blue);
-                transition: transform 0.3s ease;
-                display: none;
-            }
-            
-            @media (max-width: 768px) {
-                .service-item::after {
-                    display: block;
-                }
-                
-                .service-item.mobile-active::after {
-                    content: '−';
-                    transform: translateY(-50%) rotate(180deg);
-                }
-            }
-            
-            .service-details-container {
-                display: none;
-            }
-            
-            .service-detail {
-                position: static;
-                margin: 0;
-                transform: none;
-                display: none;
-                border-radius: 0;
-                border-top: 2px solid var(--pale-blue);
-                box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
-                background-color: rgba(255, 255, 255, 0.95);
-            }
-            
-            .service-detail.mobile-active {
                 display: block;
-                opacity: 1;
-                animation: slideDown 0.3s ease-out;
             }
             
-            @keyframes slideDown {
-                from {
-                    max-height: 0;
-                    opacity: 0;
-                    padding-top: 0;
-                    padding-bottom: 0;
-                }
-                to {
-                    max-height: 500px;
-                    opacity: 1;
-                    padding-top: 2.5rem;
-                    padding-bottom: 2.5rem;
-                }
-            }
-            
-            .service-placeholder {
-                display: none !important;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .venn-circle {
-                width: 110px;
-                height: 110px;
-                padding: 1rem;
-            }
-            
-            .venn-circle h4 {
-                font-size: 1.2rem;
-            }
-            
-            .venn-circle.ethos {
-                animation: bounceEthosMobile 4s ease-in-out infinite;
-            }
-            
-            .venn-circle.logos {
-                left: 10%;
-                animation: bounceLogosMobile 4.5s ease-in-out infinite;
-            }
-            
-            .venn-circle.pathos {
-                right: 10%;
-                animation: bouncePathosMobile 5s ease-in-out infinite;
-            }
-            
-            @keyframes bounceEthosMobile {
-                0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
-                50% { transform: translateX(-50%) translateY(-10px) scale(1.02); }
-            }
-            
-            @keyframes bounceLogosMobile {
-                0%, 100% { transform: translateY(0) scale(1); }
-                50% { transform: translateY(-8px) scale(1.02); }
-            }
-            
-            @keyframes bouncePathosMobile {
-                0%, 100% { transform: translateY(0) scale(1); }
-                50% { transform: translateY(-8px) scale(1.02); }
-            }
-            
-            .rhetoric-venn {
-                height: 350px;
-            }
-            
-            .rhetoric-explanation-center {
-                width: 250px;
-                top: 40%;
-            }
-            
-            .rhetoric-explanation {
-                padding: 1rem;
-            }
-            
-            .rhetoric-explanation h3 {
-                font-size: 1.2rem;
-            }
-            
-            .rhetoric-explanation p {
-                font-size: 0.85rem;
+            .service-item.mobile-active::after {
+                content: '−';
+                transform: translateY(-50%) rotate(180deg);
             }
         }
-    </style>
+        
+        .service-details-container {
+            display: none;
+        }
+        
+        .service-detail {
+            position: static;
+            margin: 0;
+            transform: none;
+            display: none;
+            border-radius: 0;
+            border-top: 2px solid var(--pale-blue);
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .service-detail.mobile-active {
+            display: block;
+            opacity: 1;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                max-height: 0;
+                opacity: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            to {
+                max-height: 500px;
+                opacity: 1;
+                padding-top: 2.5rem;
+                padding-bottom: 2.5rem;
+            }
+        }
+        
+        .service-placeholder {
+            display: none !important;
+        }
+        
+        .about-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .venn-circle {
+            width: 110px;
+            height: 110px;
+            padding: 1rem;
+        }
+        
+        .venn-circle h4 {
+            font-size: 1.2rem;
+        }
+        
+        .venn-circle.ethos {
+            animation: bounceEthosMobile 4s ease-in-out infinite;
+        }
+        
+        .venn-circle.logos {
+            left: 10%;
+            animation: bounceLogosMobile 4.5s ease-in-out infinite;
+        }
+        
+        .venn-circle.pathos {
+            right: 10%;
+            animation: bouncePathosMobile 5s ease-in-out infinite;
+        }
+        
+        @keyframes bounceEthosMobile {
+            0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+            50% { transform: translateX(-50%) translateY(-10px) scale(1.02); }
+        }
+        
+        @keyframes bounceLogosMobile {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.02); }
+        }
+        
+        @keyframes bouncePathosMobile {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.02); }
+        }
+        
+        .rhetoric-venn {
+            height: 350px;
+        }
+        
+        .rhetoric-explanation-center {
+            width: 250px;
+            top: 35%;
+        }
+        
+        .rhetoric-explanation {
+            padding: 1rem;
+        }
+        
+        .rhetoric-explanation h3 {
+            font-size: 1.2rem;
+        }
+        
+        .rhetoric-explanation p {
+            font-size: 0.85rem;
+        }
+    }
+</style>
+```
+
 </head>
 <body>
 
-    <nav>
+```
+<nav>
+    <div class="container">
+        <div class="nav-logo">Hesychia Law <span>PLLC</span></div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#why-hesychia">Why Hesychia?</a>
+            <a href="#philosophy">Philosophy</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-quote">
+                "Understand – through the stillness, Act – out of the stillness, Conquer – in the stillness."
+                <cite>– Dag Hammarskjöld</cite>
+            </div>
+            <h1 class="small-caps">Hesychia Law</h1>
+            <p class="hero-tagline">Strength in Soundness.</p>
+            <a href="#philosophy" class="cta-button">Learn More</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="why-hesychia" style="background-color: var(--white); padding: 4rem 0;">
         <div class="container">
-            <div class="nav-logo">Hesychia Law <span>PLLC</span></div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#why-hesychia">Why Hesychia?</a>
-                <a href="#philosophy">Philosophy</a>
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <h2 style="color: var(--primary-blue); margin-bottom: 2rem;">Why <span class="small-caps">Hesychia Law</span>?</h2>
+                <div style="background: linear-gradient(135deg, rgba(26, 58, 92, 0.03) 0%, rgba(212, 226, 241, 0.2) 100%); padding: 3rem; border-radius: 15px; border-left: 5px solid var(--primary-blue);">
+                    <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem; font-weight: 300;">
+                        Newman Nahas left behind two decades at the world's most elite law firms for one reason: to focus exclusively on what he loves. And what he does best: Spot the issue that changes everything. Find the argument others miss. Win the cases others won't take.
+                    </p>
+                </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <header class="hero" id="home">
+    <section id="hesychia-philosophy" style="background-color: var(--gray-light); padding: 4rem 0;">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-quote">
-                    "Understand – through the stillness, Act – out of the stillness, Conquer – in the stillness."
-                    <cite>– Dag Hammarskjöld</cite>
-                </div>
-                <h1 class="small-caps">Hesychia Law</h1>
-                <p class="hero-tagline">Strength in Soundness.</p>
-                <a href="#philosophy" class="cta-button">Learn More</a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section id="why-hesychia" style="background-color: var(--white); padding: 4rem 0;">
-            <div class="container">
-                <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-                    <h2 style="color: var(--primary-blue); margin-bottom: 2rem;">Why <span class="small-caps">Hesychia Law</span>?</h2>
-                    <div style="background: linear-gradient(135deg, rgba(26, 58, 92, 0.03) 0%, rgba(212, 226, 241, 0.2) 100%); padding: 3rem; border-radius: 15px; border-left: 5px solid var(--primary-blue);">
-                        <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem; font-weight: 300;">
-                            Newman Nahas left behind two decades at the world's most elite law firms for one reason: to focus exclusively on what he loves. And what he does best: Spot the issue that changes everything. Find the argument others miss. Win the cases others won't take.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="hesychia-philosophy" style="background-color: var(--gray-light); padding: 4rem 0;">
-            <div class="container">
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <h3 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primary-blue); margin-bottom: 2rem;">
-                        <span style="filter: grayscale(100%) brightness(0.5);">⛵</span> Calm Counsel for Turbulent Times
-                    </h3>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h3 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primary-blue); margin-bottom: 2rem;">
+                    <span style="filter: grayscale(100%) brightness(0.5);">⛵</span> Calm Counsel for Turbulent Times
+                </h3>
+                
+                <div style="background-color: var(--white); padding: 3rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
+                    <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem;">
+                        "Hesychia" comes from the Greek for inner calmness, stillness, or peace. And it suggests a new vision for the practice of law. In litigation, storms are inevitable—opposing counsel manufactures crises, deadlines compress, stakes escalate. Most lawyers meet turbulence with more turbulence.
+                    </p>
                     
-                    <div style="background-color: var(--white); padding: 3rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
-                        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem;">
-                            "Hesychia" comes from the Greek for inner calmness, stillness, or peace. And it suggests a new vision for the practice of law. In litigation, storms are inevitable—opposing counsel manufactures crises, deadlines compress, stakes escalate. Most lawyers meet turbulence with more turbulence.
+                    <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem;">
+                        But strength lies in finding the still point at the center of the storm. From there, you see what others miss: the single issue that will determine the outcome, the overlooked precedent that changes everything, the simple truth obscured by complexity.
+                    </p>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 0;">
+                        This is what allows you to rest even while the tempests are raging. This is the <span class="small-caps">Hesychia Law</span> difference.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy">
+        <div class="container">
+            <div class="philosophy-intro">
+                <h2>New Firm, Timeless Principles</h2>
+                <div style="max-width: 800px; margin: 3rem auto;">
+                    <div style="position: relative; padding: 3rem 2rem; text-align: center;">
+                        <p style="font-size: 1.8rem; line-height: 1.4; color: var(--primary-blue); font-family: 'Playfair Display', serif; font-style: italic; margin: 0; position: relative; z-index: 1;">
+                            Effective advocacy comes from the 
+                            <span style="color: var(--dark-blue); font-weight: 700;">heart</span> 
+                            through the 
+                            <span style="color: var(--accent-blue); font-weight: 700;">mind</span> 
+                            and speaks to the 
+                            <span style="color: var(--primary-blue); font-weight: 700;">soul</span>.
                         </p>
-                        
-                        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem;">
-                            But strength lies in finding the still point at the center of the storm. From there, you see what others miss: the single issue that will determine the outcome, the overlooked precedent that changes everything, the simple truth obscured by complexity.
-                        </p>
-                        
-                        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 0;">
-                            This is what allows you to rest even while the tempests are raging. This is the <span class="small-caps">Hesychia Law</span> difference.
-                        </p>
+                        <div style="position: absolute; top: 50%; left: 10%; right: 10%; height: 1px; background: linear-gradient(to right, transparent, var(--pale-blue), transparent); z-index: 0;"></div>
                     </div>
                 </div>
             </div>
-        </section>
+            
+            <p class="rhetoric-prompt">Explore each principle</p>
+            
+            <div class="rhetoric-venn">
+                <div class="venn-circle ethos" onmouseover="showRhetoric('ethos')" onmouseout="hideRhetoric()">
+                    <h4>Ethos</h4>
+                </div>
+                
+                <div class="venn-circle logos" onmouseover="showRhetoric('logos')" onmouseout="hideRhetoric()">
+                    <h4>Logos</h4>
+                </div>
+                
+                <div class="venn-circle pathos" onmouseover="showRhetoric('pathos')" onmouseout="hideRhetoric()">
+                    <h4>Pathos</h4>
+                </div>
+                
+                <div class="rhetoric-explanation-center">
+                    <div class="rhetoric-explanation" id="ethos-explanation">
+                        <h3>Credibility</h3>
+                        <p>It's hard to persuade someone if you have a track record of overstating. Effective advocacy requires a track record of integrity.</p>
+                    </div>
+                    
+                    <div class="rhetoric-explanation" id="logos-explanation">
+                        <h3>Soundness</h3>
+                        <p>It's hard to persuade someone if you're wrong. Effective advocacy requires thinking soundly and honestly.</p>
+                    </div>
+                    
+                    <div class="rhetoric-explanation" id="pathos-explanation">
+                        <h3>Empathy</h3>
+                        <p>It's hard to persuade someone if you can't illuminate the human stakes. Effective advocacy requires empathy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="philosophy">
-            <div class="container">
-                <div class="philosophy-intro">
-                    <h2>New Firm, Timeless Principles</h2>
-                    <div style="max-width: 800px; margin: 3rem auto;">
-                        <div style="position: relative; padding: 3rem 2rem; text-align: center;">
-                            <p style="font-size: 1.8rem; line-height: 1.4; color: var(--primary-blue); font-family: 'Playfair Display', serif; font-style: italic; margin: 0; position: relative; z-index: 1;">
-                                Effective advocacy comes from the 
-                                <span style="color: var(--dark-blue); font-weight: 700;">heart</span> 
-                                through the 
-                                <span style="color: var(--accent-blue); font-weight: 700;">mind</span> 
-                                and speaks to the 
-                                <span style="color: var(--primary-blue); font-weight: 700;">soul</span>.
-                            </p>
-                            <div style="position: absolute; top: 50%; left: 10%; right: 10%; height: 1px; background: linear-gradient(to right, transparent, var(--pale-blue), transparent); z-index: 0;"></div>
+    <section id="services">
+        <div class="container">
+            <h2>How Can <span class="small-caps">Hesychia Law</span> Add Value?</h2>
+            
+            <div class="services-container">
+                <div class="services-menu">
+                    <div class="service-item" data-service="long-odds">
+                        <div class="service-header">
+                            <div class="service-icon">⚖️</div>
+                            <h3>When the Odds are Long and Stakes High</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item" data-service="prevention">
+                        <div class="service-header">
+                            <div class="service-icon">🛡️</div>
+                            <h3>An Ounce of Prevention</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item" data-service="cut-chase">
+                        <div class="service-header">
+                            <div class="service-icon">🎯</div>
+                            <h3>Cut to the Chase</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item" data-service="second-opinion">
+                        <div class="service-header">
+                            <div class="service-icon">🔍</div>
+                            <h3>A Second Opinion</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item" data-service="appellate-trial">
+                        <div class="service-header">
+                            <div class="service-icon">⚡</div>
+                            <h3>Appellate Lawyer at Trial</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item" data-service="making-peace">
+                        <div class="service-header">
+                            <div class="service-icon">🕊️</div>
+                            <h3>Making Peace</h3>
                         </div>
                     </div>
                 </div>
                 
-                <p class="rhetoric-prompt">Explore each principle</p>
-                
-                <div class="rhetoric-venn">
-                    <div class="venn-circle ethos" onmouseover="showRhetoric('ethos')" onmouseout="hideRhetoric()">
-                        <h4>Ethos</h4>
+                <div class="service-details-container" id="service-details-container">
+                    <div class="service-placeholder" id="service-placeholder">
+                        <p>Hover over a service to learn more</p>
                     </div>
                     
-                    <div class="venn-circle logos" onmouseover="showRhetoric('logos')" onmouseout="hideRhetoric()">
-                        <h4>Logos</h4>
+                    <div class="service-detail" id="long-odds-detail">
+                        <h3>We can handle your hardest appeals.</h3>
+                        <p>Newman has built a reputation for reversing adverse decisions and preserving crucial victories in state and federal appellate courts. When conventional wisdom says you can't win, that's exactly when you need an unconventional approach. Newman excels at finding the overlooked argument, the novel interpretation, or the fundamental principle that transforms a losing case into a winning one.</p>
                     </div>
                     
-                    <div class="venn-circle pathos" onmouseover="showRhetoric('pathos')" onmouseout="hideRhetoric()">
-                        <h4>Pathos</h4>
+                    <div class="service-detail" id="prevention-detail">
+                        <h3>We can build your legal foundations.</h3>
+                        <p>Strategic positioning before litigation can determine outcomes before a complaint is ever filed. From contract drafting that anticipates disputes to pre-litigation counseling that shapes the battlefield, Newman helps clients win by preventing fights they don't need and preparing for the ones they do.</p>
                     </div>
                     
-                    <div class="rhetoric-explanation-center">
-                        <div class="rhetoric-explanation" id="ethos-explanation">
-                            <h3>Credibility</h3>
-                            <p>It's hard to persuade someone if you have a track record of overstating. Effective advocacy requires a track record of integrity.</p>
-                        </div>
-                        
-                        <div class="rhetoric-explanation" id="logos-explanation">
-                            <h3>Soundness</h3>
-                            <p>It's hard to persuade someone if you're wrong. Effective advocacy requires thinking soundly and honestly.</p>
-                        </div>
-                        
-                        <div class="rhetoric-explanation" id="pathos-explanation">
-                            <h3>Empathy</h3>
-                            <p>It's hard to persuade someone if you can't illuminate the human stakes. Effective advocacy requires empathy.</p>
-                        </div>
+                    <div class="service-detail" id="cut-chase-detail">
+                        <h3>We can develop, draft, and argue your critical motions.</h3>
+                        <p>Summary judgment, motions to dismiss, and other case-ending strategies—with fees tied to success. Newman focuses on the dispositive issues that can end litigation early and efficiently, saving clients time, money, and uncertainty.</p>
+                    </div>
+                    
+                    <div class="service-detail" id="second-opinion-detail">
+                        <h3>We can provide fresh perspective on intractable issues.</h3>
+                        <p>Sometimes you need someone who is not in the weeds to see the forest. When your team has been living with a case for months or years, Newman brings the clarity of distance combined with the insight of experience to spot solutions hiding in plain sight.</p>
+                    </div>
+                    
+                    <div class="service-detail" id="appellate-trial-detail">
+                        <h3>We can go into the trenches with you.</h3>
+                        <p>Partner with trial counsel—they handle the theatrics, Newman handles the law. By thinking about the appeal from day one of trial, Newman helps create the record that wins not just in the trial court but protects victory on appeal.</p>
+                    </div>
+                    
+                    <div class="service-detail" id="making-peace-detail">
+                        <h3>We can find win-win solutions that grow the pie.</h3>
+                        <p>These solutions are more common than you might think—what's not common is incentivizing lawyers to find them. Newman's fee structures align with finding resolutions that create value rather than destroy it.</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="services">
-            <div class="container">
-                <h2>How Can <span class="small-caps">Hesychia Law</span> Add Value?</h2>
-                
-                <div class="services-container">
-                    <div class="services-menu">
-                        <div class="service-item" data-service="long-odds">
-                            <div class="service-header">
-                                <div class="service-icon">⚖️</div>
-                                <h3>When the Odds are Long and Stakes High</h3>
-                            </div>
-                        </div>
-                        
-                        <div class="service-item" data-service="prevention">
-                            <div class="service-header">
-                                <div class="service-icon">🛡️</div>
-                                <h3>An Ounce of Prevention</h3>
-                            </div>
-                        </div>
-                        
-                        <div class="service-item" data-service="cut-chase">
-                            <div class="service-header">
-                                <div class="service-icon">🎯</div>
-                                <h3>Cut to the Chase</h3>
-                            </div>
-                        </div>
-                        
-                        <div class="service-item" data-service="second-opinion">
-                            <div class="service-header">
-                                <div class="service-icon">🔍</div>
-                                <h3>A Second Opinion</h3>
-                            </div>
-                        </div>
-                        
-                        <div class="service-item" data-service="appellate-trial">
-                            <div class="service-header">
-                                <div class="service-icon">⚡</div>
-                                <h3>Appellate Lawyer at Trial</h3>
-                            </div>
-                        </div>
-                        
-                        <div class="service-item" data-service="making-peace">
-                            <div class="service-header">
-                                <div class="service-icon">🕊️</div>
-                                <h3>Making Peace</h3>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="service-details-container" id="service-details-container">
-                        <div class="service-placeholder" id="service-placeholder">
-                            <p>Hover over a service to learn more</p>
-                        </div>
-                        
-                        <div class="service-detail" id="long-odds-detail">
-                            <h3>We can handle your hardest appeals.</h3>
-                            <p>Newman has built a reputation for reversing adverse decisions and preserving crucial victories in state and federal appellate courts. When conventional wisdom says you can't win, that's exactly when you need an unconventional approach. Newman excels at finding the overlooked argument, the novel interpretation, or the fundamental principle that transforms a losing case into a winning one.</p>
-                        </div>
-                        
-                        <div class="service-detail" id="prevention-detail">
-                            <h3>We can build your legal foundations.</h3>
-                            <p>Strategic positioning before litigation can determine outcomes before a complaint is ever filed. From contract drafting that anticipates disputes to pre-litigation counseling that shapes the battlefield, Newman helps clients win by preventing fights they don't need and preparing for the ones they do.</p>
-                        </div>
-                        
-                        <div class="service-detail" id="cut-chase-detail">
-                            <h3>We can develop, draft, and argue your critical motions.</h3>
-                            <p>Summary judgment, motions to dismiss, and other case-ending strategies—with fees tied to success. Newman focuses on the dispositive issues that can end litigation early and efficiently, saving clients time, money, and uncertainty.</p>
-                        </div>
-                        
-                        <div class="service-detail" id="second-opinion-detail">
-                            <h3>We can provide fresh perspective on intractable issues.</h3>
-                            <p>Sometimes you need someone who is not in the weeds to see the forest. When your team has been living with a case for months or years, Newman brings the clarity of distance combined with the insight of experience to spot solutions hiding in plain sight.</p>
-                        </div>
-                        
-                        <div class="service-detail" id="appellate-trial-detail">
-                            <h3>We can go into the trenches with you.</h3>
-                            <p>Partner with trial counsel—they handle the theatrics, Newman handles the law. By thinking about the appeal from day one of trial, Newman helps create the record that wins not just in the trial court but protects victory on appeal.</p>
-                        </div>
-                        
-                        <div class="service-detail" id="making-peace-detail">
-                            <h3>We can find win-win solutions that grow the pie.</h3>
-                            <p>These solutions are more common than you might think—what's not common is incentivizing lawyers to find them. Newman's fee structures align with finding resolutions that create value rather than destroy it.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <h2>About Newman Nahas</h2>
-                <p style="text-align: center; font-size: 1.4rem; font-weight: 500; color: var(--primary-blue); margin-bottom: 3rem;">Founder and Managing Member of <span class="small-caps">Hesychia Law</span></p>
-                <div class="about-content">
-                    <div class="about-left">
-                        <div class="about-photo">
-                            <img src="newman-nahas-photo.jpg" alt="Newman Nahas">
-                            <p style="text-align: center; font-style: italic; color: var(--text-light); margin-top: 0.75rem; font-size: 0.9rem;">Newman at the 116th Judicial District Court</p>
-                        </div>
-                        <div class="credentials-box">
-                            <h3>Credentials</h3>
-                            <ul class="credentials-list">
-                                <li>University of Florida, Valedictorian</li>
-                                <li>Rhodes Scholar, Oxford University</li>
-                                <li>M.Phil. Philosophy & Religion</li>
-                                <li>J.D., Harvard Law School</li>
-                                <li>Bar Admissions: California, Texas & New York</li>
-                            </ul>
-                            <h3 style="margin-top: 2rem;">Track Record</h3>
-                            <ul class="credentials-list">
-                                <li>$75M judgment reversed on appeal</li>
-                                <li>$200M default judgment voided</li>
-                                <li>$10B+ securities class action defeated via motion to dismiss</li>
-                                <li>$130M claims gone—directed verdict</li>
-                                <li>$2.85B antitrust settlement secured</li>
-                                <li>Fifth Circuit interlocutory appeal—secured reversal of dispositive ruling on industry-defining issue</li>
-                                <li>Persuaded SCOTX to take interest in reviewing issues of state-wide importance</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="about-text">
-                        <div class="highlight-quote">
-                            "Newman is driven by what Stephen J. Gould termed 'intellectual promiscuity'—loving butterflies as much as literature because there is no fancy without science and no art without facts."
-                        </div>
-                        
-                        <div class="story-section">
-                            <h4>Before the Law</h4>
-                            <p>From physics to philosophy, Newman's undergraduate years spanned thirteen disciplines, building the interdisciplinary foundation that defines his practice today. At Oxford, his research explored where science, philosophy, and religion converge.</p>
-                        </div>
-
-                        <div class="story-section">
-                            <h4>The Teaching Moment</h4>
-                            <p>Teaching for Michael Sandel at Harvard Law changed everything. That experience—helping students grapple with justice itself—shapes how Newman approaches every case. Two decades at elite firms followed, but the lesson remained: true persuasion comes from understanding, not arguing; and true assent comes from deserving it, not demanding it.</p>
-                        </div>
-
-                        <div class="story-section">
-                            <h4>Theory Meets Trial</h4>
-                            <p>$10 billion at stake. Newman devoured accounting literature to find the fallacy in the plaintiff's claim that killed the case before discovery began.</p>
-                            
-                            <p>$130 million at stake. The eve of jury charge. Newman reasoned with the Court for hours—directed verdict granted, ending a multi-year litigation with a take-nothing judgment.</p>
-                            
-                            <p>This is the Hesychia difference: seeing connections others miss.</p>
-                        </div>
-                        
-                        <div class="promises-container">
-                            <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem; color: var(--primary-blue);"><span class="small-caps">Hesychia Law</span> Promises</h3>
-                            <div class="promises-list">
-                                <div class="promise-item">
-                                    <div class="promise-icon-wrapper">
-                                        <span style="font-size: 1.5rem;">🎯</span>
-                                    </div>
-                                    <div class="promise-content">
-                                        <h4 class="promise-title">Selective Representation</h4>
-                                        <p>I will only take cases I am genuinely interested in. You deserve a lawyer whose heart is in it.</p>
-                                    </div>
-                                </div>
-                                <div class="promise-item">
-                                    <div class="promise-icon-wrapper">
-                                        <span style="font-size: 1.5rem;">🤝</span>
-                                    </div>
-                                    <div class="promise-content">
-                                        <h4 class="promise-title">Aligned Incentives</h4>
-                                        <p>I will not accept fee structures that create even the appearance of misaligned interests.</p>
-                                    </div>
-                                </div>
-                                <div class="promise-item">
-                                    <div class="promise-icon-wrapper">
-                                        <span style="font-size: 1.5rem;">💭</span>
-                                    </div>
-                                    <div class="promise-content">
-                                        <h4 class="promise-title">Radical Candor</h4>
-                                        <p>I will tell you what you need to know, not what you want to hear.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <div class="contact-content">
-                    <h2>Let's Talk</h2>
-                    <p style="font-size: 1.2rem; color: var(--primary-blue); margin-bottom: 1rem;">Considering an appeal? Facing an appeal?</p>
-                    <p style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 2rem;">Need strategic counsel along the way? Let's discuss if <span class="small-caps">Hesychia Law</span> can help.</p>
-                    <div class="contact-info">
-                        <h3>Contact Newman Nahas</h3>
-                        <div class="contact-details">
-                            <p style="color: var(--pale-blue);">Email: <a href="mailto:nnahas@hesychialaw.com">nnahas@hesychialaw.com</a></p>
-                            <p style="color: var(--pale-blue);">Phone: <a href="tel:917-744-3555">917-744-3555</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 <span class="small-caps">Hesychia Law</span>. All Rights Reserved.</p>
-            <p class="disclaimer">This is attorney advertising. Past results do not guarantee future outcomes.</p>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+    <section id="about">
+        <div class="container">
+            <h2>About Newman Nahas</h2>
+            <p style="text-align: center; font-size: 1.4rem; font-weight: 500; color: var(--primary-blue); margin-bottom: 3rem;">Founder and Managing Member of <span class="small-caps">Hesychia Law</span></p>
+            <div class="about-content">
+                <div class="about-left">
+                    <div class="about-photo">
+                        <img src="newman-nahas-photo.jpg" alt="Newman Nahas">
+                        <p style="text-align: center; font-style: italic; color: var(--text-light); margin-top: 0.75rem; font-size: 0.9rem;">Newman at the 116th Judicial District Court</p>
+                    </div>
+                    <div class="credentials-box">
+                        <h3>Credentials</h3>
+                        <ul class="credentials-list">
+                            <li>University of Florida, Valedictorian</li>
+                            <li>Rhodes Scholar, Oxford University</li>
+                            <li>M.Phil. Philosophy & Religion</li>
+                            <li>J.D., Harvard Law School</li>
+                            <li>Bar Admissions: California, Texas & New York</li>
+                        </ul>
+                        <h3 style="margin-top: 2rem;">Track Record</h3>
+                        <ul class="credentials-list">
+                            <li>$75M judgment reversed on appeal</li>
+                            <li>$200M default judgment voided</li>
+                            <li>$10B+ securities class action defeated via motion to dismiss</li>
+                            <li>$130M claims gone—directed verdict</li>
+                            <li>$2.85B antitrust settlement secured</li>
+                            <li>Fifth Circuit interlocutory appeal—secured reversal of dispositive ruling on industry-defining issue</li>
+                            <li>Persuaded SCOTX to take interest in reviewing issues of state-wide importance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <div class="highlight-quote">
+                        "Newman is driven by what Stephen J. Gould termed 'intellectual promiscuity'—loving butterflies as much as literature because there is no fancy without science and no art without facts."
+                    </div>
+                    
+                    <div class="story-section">
+                        <h4>Before the Law</h4>
+                        <p>From physics to philosophy, Newman's undergraduate years spanned thirteen disciplines, building the interdisciplinary foundation that defines his practice today. At Oxford, his research explored where science, philosophy, and religion converge.</p>
+                    </div>
+
+                    <div class="story-section">
+                        <h4>The Teaching Moment</h4>
+                        <p>Teaching for Michael Sandel at Harvard Law changed everything. That experience—helping students grapple with justice itself—shapes how Newman approaches every case. Two decades at elite firms followed, but the lesson remained: true persuasion comes from understanding, not arguing; and true assent comes from deserving it, not demanding it.</p>
+                    </div>
+
+                    <div class="story-section">
+                        <h4>Theory Meets Trial</h4>
+                        <p>$10 billion at stake. Newman devoured accounting literature to find the fallacy in the plaintiff's claim that killed the case before discovery began.</p>
+                        
+                        <p>$130 million at stake. The eve of jury charge. Newman reasoned with the Court for hours—directed verdict granted, ending a multi-year litigation with a take-nothing judgment.</p>
+                        
+                        <p>This is the Hesychia difference: seeing connections others miss.</p>
+                    </div>
+                    
+                    <div class="promises-container">
+                        <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem; color: var(--primary-blue);"><span class="small-caps">Hesychia Law</span> Promises</h3>
+                        <div class="promises-list">
+                            <div class="promise-item">
+                                <div class="promise-icon-wrapper">
+                                    <span style="font-size: 1.5rem;">🎯</span>
+                                </div>
+                                <div class="promise-content">
+                                    <h4 class="promise-title">Selective Representation</h4>
+                                    <p>I will only take cases I am genuinely interested in. You deserve a lawyer whose heart is in it.</p>
+                                </div>
+                            </div>
+                            <div class="promise-item">
+                                <div class="promise-icon-wrapper">
+                                    <span style="font-size: 1.5rem;">🤝</span>
+                                </div>
+                                <div class="promise-content">
+                                    <h4 class="promise-title">Aligned Incentives</h4>
+                                    <p>I will not accept fee structures that create even the appearance of misaligned interests.</p>
+                                </div>
+                            </div>
+                            <div class="promise-item">
+                                <div class="promise-icon-wrapper">
+                                    <span style="font-size: 1.5rem;">💭</span>
+                                </div>
+                                <div class="promise-content">
+                                    <h4 class="promise-title">Radical Candor</h4>
+                                    <p>I will tell you what you need to know, not what you want to hear.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Let's Talk</h2>
+                <p style="font-size: 1.2rem; color: var(--primary-blue); margin-bottom: 1rem;">Considering an appeal? Facing an appeal?</p>
+                <p style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 2rem;">Need strategic counsel along the way? Let's discuss if <span class="small-caps">Hesychia Law</span> can help.</p>
+                <div class="contact-info">
+                    <h3>Contact Newman Nahas</h3>
+                    <div class="contact-details">
+                        <p style="color: var(--pale-blue);">Email: <a href="mailto:nnahas@hesychialaw.com">nnahas@hesychialaw.com</a></p>
+                        <p style="color: var(--pale-blue);">Phone: <a href="tel:917-744-3555">917-744-3555</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 <span class="small-caps">Hesychia Law</span>. All Rights Reserved.</p>
+        <p class="disclaimer">This is attorney advertising. Past results do not guarantee future outcomes.</p>
+    </div>
+</footer>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
+    });
 
-        // Rhetoric circles interaction
-        function showRhetoric(type) {
-            // Hide all explanations
-            document.querySelectorAll('.rhetoric-explanation').forEach(exp => {
-                exp.classList.remove('active');
-            });
+    // Rhetoric circles interaction
+    function showRhetoric(type) {
+        // Hide all explanations
+        document.querySelectorAll('.rhetoric-explanation').forEach(exp => {
+            exp.classList.remove('active');
+        });
+        
+        // Show the selected explanation
+        document.getElementById(type + '-explanation').classList.add('active');
+    }
+
+    function hideRhetoric() {
+        // Hide all explanations
+        document.querySelectorAll('.rhetoric-explanation').forEach(exp => {
+            exp.classList.remove('active');
+        });
+    }
+
+    // Services interaction
+    function initializeServices() {
+        const serviceItems = document.querySelectorAll('.service-item');
+        const isMobile = window.innerWidth <= 768;
+        
+        serviceItems.forEach((item, index) => {
+            const serviceId = item.getAttribute('data-service');
             
-            // Show the selected explanation
-            document.getElementById(type + '-explanation').classList.add('active');
-        }
-
-        function hideRhetoric() {
-            // Hide all explanations
-            document.querySelectorAll('.rhetoric-explanation').forEach(exp => {
-                exp.classList.remove('active');
-            });
-        }
-
-        // Services interaction
-        function initializeServices() {
-            const serviceItems = document.querySelectorAll('.service-item');
-            const isMobile = window.innerWidth <= 768;
-            
-            serviceItems.forEach((item, index) => {
-                const serviceId = item.getAttribute('data-service');
-                
-                if (isMobile) {
-                    // Mobile: click to expand/collapse
-                    item.onclick = function(e) {
-                        e.preventDefault();
-                        const detail = document.getElementById(serviceId + '-detail');
-                        const isActive = detail.classList.contains('mobile-active');
-                        
-                        // Close all details
-                        document.querySelectorAll('.service-detail').forEach(d => {
-                            d.classList.remove('mobile-active');
-                        });
-                        
-                        // Remove active class from all items
-                        serviceItems.forEach(i => {
-                            i.classList.remove('mobile-active');
-                        });
-                        
-                        if (!isActive) {
-                            // Move detail after this item
-                            item.after(detail);
-                            item.classList.add('mobile-active');
-                            setTimeout(() => {
-                                detail.classList.add('mobile-active');
-                            }, 10);
-                        }
-                    };
-                } else {
-                    // Desktop: hover to show
-                    item.onmouseover = function() {
-                        // Hide all details
-                        document.querySelectorAll('.service-detail').forEach(detail => {
-                            detail.classList.remove('active');
-                        });
-                        document.querySelectorAll('.service-item').forEach(i => {
-                            i.classList.remove('active');
-                        });
-                        
-                        // Hide placeholder
-                        const placeholder = document.getElementById('service-placeholder');
-                        if (placeholder) placeholder.style.display = 'none';
-                        
-                        // Show this detail
-                        const detail = document.getElementById(serviceId + '-detail');
-                        detail.style.top = (index * 60) + 'px';
-                        detail.classList.add('active');
-                        item.classList.add('active');
-                    };
+            if (isMobile) {
+                // Mobile: click to expand/collapse
+                item.onclick = function(e) {
+                    e.preventDefault();
+                    const detail = document.getElementById(serviceId + '-detail');
+                    const isActive = detail.classList.contains('mobile-active');
                     
-                    item.onmouseleave = function() {
+                    // Close all details
+                    document.querySelectorAll('.service-detail').forEach(d => {
+                        d.classList.remove('mobile-active');
+                    });
+                    
+                    // Remove active class from all items
+                    serviceItems.forEach(i => {
+                        i.classList.remove('mobile-active');
+                    });
+                    
+                    if (!isActive) {
+                        // Move detail after this item
+                        item.after(detail);
+                        item.classList.add('mobile-active');
+                        setTimeout(() => {
+                            detail.classList.add('mobile-active');
+                        }, 10);
+                    }
+                };
+            } else {
+                // Desktop: hover to show
+                item.onmouseover = function() {
+                    // Hide all details
+                    document.querySelectorAll('.service-detail').forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    document.querySelectorAll('.service-item').forEach(i => {
+                        i.classList.remove('active');
+                    });
+                    
+                    // Hide placeholder
+                    const placeholder = document.getElementById('service-placeholder');
+                    if (placeholder) placeholder.style.display = 'none';
+                    
+                    // Show this detail
+                    const detail = document.getElementById(serviceId + '-detail');
+                    detail.style.top = (index * 60) + 'px';
+                    detail.classList.add('active');
+                    item.classList.add('active');
+                };
+                
+                item.onmouseleave = function() {
+                    item.classList.remove('active');
+                };
+            }
+        });
+        
+        // Desktop: reset on container mouse leave
+        if (!isMobile) {
+            const container = document.querySelector('.services-container');
+            if (container) {
+                container.onmouseleave = function() {
+                    document.querySelectorAll('.service-detail').forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    document.querySelectorAll('.service-item').forEach(item => {
                         item.classList.remove('active');
-                    };
-                }
-            });
-            
-            // Desktop: reset on container mouse leave
-            if (!isMobile) {
-                const container = document.querySelector('.services-container');
-                if (container) {
-                    container.onmouseleave = function() {
-                        document.querySelectorAll('.service-detail').forEach(detail => {
-                            detail.classList.remove('active');
-                        });
-                        document.querySelectorAll('.service-item').forEach(item => {
-                            item.classList.remove('active');
-                        });
-                        const placeholder = document.getElementById('service-placeholder');
-                        if (placeholder) placeholder.style.display = 'flex';
-                    };
-                }
+                    });
+                    const placeholder = document.getElementById('service-placeholder');
+                    if (placeholder) placeholder.style.display = 'flex';
+                };
             }
         }
-        
-        // Initialize on load and resize
-        window.addEventListener('DOMContentLoaded', initializeServices);
-        window.addEventListener('resize', initializeServices);
-    </script>
+    }
+    
+    // Initialize on load and resize
+    window.addEventListener('DOMContentLoaded', initializeServices);
+    window.addEventListener('resize', initializeServices);
+</script>
+```
+
 </body>
 </html>
