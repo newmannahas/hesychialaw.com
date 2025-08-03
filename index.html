@@ -242,8 +242,8 @@
             animation: bounceEthos 4s ease-in-out infinite;
         }
         .venn-circle.ethos:hover {
-            transform: translateX(-50%) scale(1.15);
-            animation: none;
+            transform: translateX(-50%) scale(1.15) !important;
+            animation-play-state: paused;
         }
         .venn-circle.logos {
             background-color: rgba(45, 84, 121, 0.15);
@@ -258,6 +258,14 @@
             bottom: 0;
             right: 15%;
             animation: bouncePathos 5s ease-in-out infinite;
+        }
+        .venn-circle.logos:hover {
+            transform: scale(1.15) !important;
+            animation-play-state: paused;
+        }
+        .venn-circle.pathos:hover {
+            transform: scale(1.15) !important;
+            animation-play-state: paused;
         }
         @keyframes bounceEthos {
             0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
@@ -708,40 +716,6 @@
         .promise-item.active .promise-content {
             max-height: 300px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .promise-content-inner {
-            padding: 2rem 3rem 3rem 7rem;
-            color: var(--text-dark);
-            line-height: 1.8;
-            font-size: 1.2rem;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: all 0.6s ease 0.3s;
-            position: relative;
-        }
-        .promise-item.active .promise-content-inner {
-            color: rgba(255, 255, 255, 0.95);
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Typewriter effect */
-        .typewriter-text {
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.02em;
-        }
-        .typewriter-cursor {
-            font-weight: 300;
-            animation: blink 1s infinite;
-            margin-left: 2px;
-            opacity: 1;
-        }
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-        .promise-item:not(.active) .typewriter-text,
-        .promise-item:not(.active) .typewriter-cursor {
-            display: none;
         }
         /* Stagger animation on scroll */
         @keyframes fadeInUp {
@@ -1244,7 +1218,7 @@
                 <div class="about-content">
                     <div class="about-left">
                         <div class="about-photo">
-                            <img src="newman-nahas-photo.jpg" alt="Newman Nahas">
+                            <img src="newman-nahas-photo.jpg" alt="Newman Nahas" loading="lazy">
                             <p style="text-align: center; font-style: italic; color: var(--text-light); margin-top: 0.75rem; font-size: 0.9rem;">Newman at the 116th Judicial District Court</p>
                         </div>
                         <div class="credentials-box">
@@ -1293,7 +1267,7 @@
                         <div class="promises-container">
                             <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem; color: var(--primary-blue);"><span class="small-caps">Hesychia Law</span> Promises</h3>
                             <div class="promises-list">
-                                <div class="promise-item" onclick="togglePromise(this)">
+                                <div class="promise-item" onclick="togglePromise(this)" onmouseenter="togglePromise(this, true)" onmouseleave="togglePromise(this, false)">
                                     <div class="promise-header">
                                         <div class="promise-icon-wrapper">
                                             <span>🔍</span>
@@ -1307,7 +1281,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="promise-item" onclick="togglePromise(this)">
+                                <div class="promise-item" onclick="togglePromise(this)" onmouseenter="togglePromise(this, true)" onmouseleave="togglePromise(this, false)">
                                     <div class="promise-header">
                                         <div class="promise-icon-wrapper blue-icon">
                                             <span>🤝</span>
@@ -1321,7 +1295,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="promise-item" onclick="togglePromise(this)">
+                                <div class="promise-item" onclick="togglePromise(this)" onmouseenter="togglePromise(this, true)" onmouseleave="togglePromise(this, false)">
                                     <div class="promise-header">
                                         <div class="promise-icon-wrapper">
                                             <span>💬</span>
@@ -1381,25 +1355,47 @@
                     }
                 });
             });
-            // Rhetoric circles interaction
+            
+            // Rhetoric circles interaction with improved hover handling
+            let activeRhetoric = null;
+            let hoverTimeout = null;
+            
             window.showRhetoric = function(type) {
+                // Clear any pending timeout
+                if (hoverTimeout) {
+                    clearTimeout(hoverTimeout);
+                }
+                
                 // Hide all explanations
                 document.querySelectorAll('.rhetoric-explanation').forEach(exp => {
                     exp.classList.remove('active');
                 });
                
-                // Show the selected explanation
-                const element = document.getElementById(type + '-explanation');
-                if (element) {
-                    element.classList.add('active');
-                }
+                // Show the selected explanation with a small delay to prevent flickering
+                hoverTimeout = setTimeout(() => {
+                    const element = document.getElementById(type + '-explanation');
+                    if (element) {
+                        element.classList.add('active');
+                        activeRhetoric = type;
+                    }
+                }, 100);
             }
+            
             window.hideRhetoric = function() {
-                // Hide all explanations
-                document.querySelectorAll('.rhetoric-explanation').forEach(exp => {
-                    exp.classList.remove('active');
-                });
+                // Clear any pending timeout
+                if (hoverTimeout) {
+                    clearTimeout(hoverTimeout);
+                }
+                
+                // Hide with a small delay to prevent flickering when moving between circles
+                hoverTimeout = setTimeout(() => {
+                    document.querySelectorAll('.rhetoric-explanation').forEach(exp => {
+                        exp.classList.remove('active');
+                    });
+                    activeRhetoric = null;
+                }, 200);
             }
+            
             // Services interaction - Complete rewrite
             function setupServices() {
                 const serviceItems = document.querySelectorAll('.service-item');
@@ -1510,7 +1506,23 @@
             });
            
             // Toggle promise items - global function
-            window.togglePromise = function(element) {
+            window.togglePromise = function(element, isHover) {
+                // If it's a hover event, only proceed on desktop
+                if (isHover && window.innerWidth <= 768) {
+                    return;
+                }
+                
+                // For hover out events
+                if (isHover === false) {
+                    element.classList.remove('active');
+                    // Clear typewriter text when closing
+                    const typewriterText = element.querySelector('.typewriter-text');
+                    if (typewriterText) {
+                        typewriterText.textContent = '';
+                    }
+                    return;
+                }
+                
                 // Close all other promise items
                 document.querySelectorAll('.promise-item').forEach(item => {
                     if (item !== element) {
@@ -1523,8 +1535,12 @@
                     }
                 });
                
-                // Toggle the clicked item
-                element.classList.toggle('active');
+                // Toggle the clicked item (or just activate for hover)
+                if (isHover === true) {
+                    element.classList.add('active');
+                } else {
+                    element.classList.toggle('active');
+                }
                
                 // Start typewriter effect if opening
                 if (element.classList.contains('active')) {
@@ -1537,7 +1553,7 @@
                    
                     // Start typewriter effect
                     let index = 0;
-                    const speed = 40; // milliseconds per character
+                    const speed = 60; // milliseconds per character
                    
                     function typeWriter() {
                         if (index < text.length) {
