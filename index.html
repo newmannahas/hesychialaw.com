@@ -1396,14 +1396,17 @@
                     if (window.innerWidth > 768) {
                         // Desktop: Hover
                         item.addEventListener('mouseenter', function() {
-                            if (placeholder) placeholder.style.display = 'none';
-                            document.querySelectorAll('.service-detail').forEach(d => d.classList.remove('active'));
                             serviceItems.forEach(i => i.classList.remove('active'));
-                            const containerHeight = 400;
-                            const itemCount = serviceItems.length;
-                            const spacing = containerHeight / (itemCount - 1);
-                            detail.style.top = (index * spacing) + 'px';
-                            detail.classList.add('active');
+                            if (placeholder) placeholder.style.display = 'none';
+                            const currentActiveDetail = document.querySelector('.service-detail.active');
+                            if (currentActiveDetail !== detail) {
+                                document.querySelectorAll('.service-detail').forEach(d => d.classList.remove('active'));
+                                const containerHeight = 400;
+                                const itemCount = serviceItems.length;
+                                const spacing = containerHeight / (itemCount - 1);
+                                detail.style.top = (index * spacing) + 'px';
+                                detail.classList.add('active');
+                            }
                             item.classList.add('active');
                             lastActiveDetail = detail;
                         });
