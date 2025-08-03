@@ -780,10 +780,194 @@
             opacity: 0.7;
             margin-top: 1.5rem;
         }
-        /* --- Responsive Design --- */
+        /* --- Mobile Navigation --- */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(15, 40, 68, 0.98);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 0.75rem 2rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+        }
+        
+        /* --- Responsive Typography --- */
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            
+            h1 { 
+                font-size: 1.8rem; 
+                letter-spacing: 0.05em;
+            }
+            
+            h2 { 
+                font-size: 1.5rem; 
+                margin-bottom: 1.5rem;
+            }
+            
+            h3 { 
+                font-size: 1.2rem; 
+            }
+            
+            .hero {
+                padding-top: 6rem;
+                padding-bottom: 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-quote {
+                font-size: 0.9rem;
+                padding: 0 1rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 0.95rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        /* --- Mobile Promise Items --- */
+        @media (max-width: 768px) {
+            .promises-container {
+                padding: 3rem 0;
+                margin-top: 2rem;
+            }
+            
+            .promises-list {
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .promise-item {
+                border-radius: 15px;
+            }
+            
+            .promise-header {
+                padding: 1.5rem 1.5rem;
+                gap: 1rem;
+            }
+            
+            .promise-icon-wrapper {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .promise-title {
+                font-size: 1.3rem;
+            }
+            
+            .promise-content-inner {
+                padding: 1.5rem 1.5rem 2rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .promise-toggle {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* --- Mobile Service Items --- */
+        @media (max-width: 768px) {
+            .service-item h3 {
+                font-size: 1rem;
+            }
+            
+            .service-icon {
+                font-size: 1.5rem;
+            }
+            
+            .service-header {
+                gap: 0.75rem;
+            }
+            
+            .service-detail {
+                padding: 1.5rem;
+            }
+            
+            .service-detail h3 {
+                font-size: 1.4rem;
+            }
+            
+            .service-detail p {
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* --- Mobile Contact --- */
+        @media (max-width: 768px) {
+            .contact-info {
+                padding: 2rem 1.5rem;
+            }
+            
+            .contact-details {
+                font-size: 1rem;
+            }
+        }
+        
+        /* --- Touch-friendly interactions --- */
+        @media (hover: none) and (pointer: coarse) {
+            .venn-circle {
+                transition: all 0.3s ease;
+            }
+            
+            .venn-circle:active {
+                transform: scale(1.1);
+            }
+            
+            .venn-circle.ethos:active {
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
            
             .hero {
                 padding-top: 10rem;
@@ -994,7 +1178,8 @@
     <nav>
         <div class="container">
             <div class="nav-logo">Hesychia Law <span>PLLC</span></div>
-            <div class="nav-links">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
                 <a href="#why-hesychia">Why Hesychia?</a>
                 <a href="#philosophy">Philosophy</a>
@@ -1072,7 +1257,7 @@
                     </div>
                 </div>
                
-                <p class="rhetoric-prompt">Explore each principle</p>
+                <p class="rhetoric-prompt">Explore each principle <span style="display: none;">by hovering</span></p>
                
                 <div class="rhetoric-venn">
                     <div class="venn-circle ethos" onmouseover="showRhetoric('ethos')" onmouseout="hideRhetoric()">
@@ -1342,6 +1527,30 @@
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
            
+            // Mobile menu toggle
+            window.toggleMobileMenu = function() {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.toggle('active');
+            }
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.getElementById('navLinks').classList.remove('active');
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const nav = document.querySelector('nav');
+                const menuToggle = document.querySelector('.mobile-menu-toggle');
+                const navLinks = document.getElementById('navLinks');
+                
+                if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+            
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
