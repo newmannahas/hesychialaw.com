@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -768,410 +769,413 @@
             h3 {
                 font-size: 1.3rem;
             }
-            
-            /* Improved container padding for mobile */
-            .container {
-                padding: 0 1rem;
-            }
-            
-            /* Hero section mobile optimizations */
-            .hero {
-                padding-top: 5rem;
-                padding-bottom: 3rem;
-            }
-            .hero h1 {
-                font-size: 1.8rem;
-                letter-spacing: 0.08em;
-                margin-bottom: 0.75rem;
-            }
-            .hero-tagline {
-                font-size: 1.25rem;
-                margin-bottom: 2rem;
-            }
-            .hero-quote {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-                padding: 0 1rem;
-            }
-            .hero-quote cite {
-                font-size: 0.9rem;
-            }
-            
-            /* Mobile navigation improvements */
-            nav .container {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            .nav-logo {
-                font-size: 1.2rem;
-            }
-            .nav-logo span {
-                font-size: 0.7rem;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                gap: 1rem;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: rgba(15, 40, 68, 0.97);
-                padding: 1rem 0;
-                text-align: center;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            body.menu-open {
-                overflow: hidden;
-            }
-            .nav-links a {
-                padding: 1rem 0;
-                font-size: 1.1rem;
-            }
-            
-            /* Services section mobile layout */
-            .services-container {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-            .services-menu {
-                gap: 0;
-            }
-            .service-item {
-                margin-bottom: 0;
-                border-radius: 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 1.2rem 1rem;
-            }
-            .service-item:first-child {
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
-            }
-            .service-item:last-child {
-                border-bottom: none;
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-            }
-            .service-item::after {
-                content: '+';
-                position: absolute;
-                right: 1rem;
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: 1.5rem;
-                font-weight: 300;
-                color: var(--pale-blue);
-                transition: transform 0.3s ease;
-            }
-            .service-item.mobile-active::after {
-                content: '−';
-                transform: translateY(-50%) rotate(180deg);
-            }
-            .service-item h3 {
-                font-size: 1rem;
-                padding-right: 2rem;
-            }
-            .service-icon {
-                font-size: 1.5rem;
-            }
-            .service-details-container {
-                display: none;
-            }
-            .service-detail {
-                position: static;
-                margin: 0;
-                transform: none;
-                display: none;
-                border-radius: 0;
-                border-top: 2px solid var(--pale-blue);
-                box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
-                background-color: rgba(255, 255, 255, 0.95);
-                padding: 1.5rem 1rem;
-            }
-            .service-detail h3 {
-                font-size: 1.4rem;
-            }
-            .service-detail p {
-                font-size: 0.95rem;
-                line-height: 1.6;
-            }
-            .service-detail.mobile-active {
-                display: block;
-                opacity: 1;
-                animation: slideDown 0.3s ease-out;
-            }
-            @keyframes slideDown {
-                from {
-                    max-height: 0;
-                    opacity: 0;
-                    padding-top: 0;
-                    padding-bottom: 0;
-                }
-                to {
-                    max-height: 500px;
-                    opacity: 1;
-                    padding-top: 1.5rem;
-                    padding-bottom: 1.5rem;
-                }
-            }
-            .service-placeholder {
-                display: none !important;
-            }
-            
-            /* About section mobile layout */
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .about-photo {
-                max-width: 280px;
-                margin-top: 1rem;
-            }
-            .about-left {
-                gap: 1.5rem;
-            }
-            .credentials-box {
-                padding: 1.5rem;
-            }
-            .credentials-box h3 {
-                font-size: 1.2rem;
-                margin-bottom: 1rem;
-            }
-            .credentials-list li {
-                font-size: 0.9rem;
-                padding: 0.5rem 0;
-            }
-            .highlight-quote {
-                font-size: 1.1rem;
-                padding-left: 1.5rem;
-                margin: 1.5rem 0;
-            }
-            .story-section h4 {
-                font-size: 1rem;
-            }
-            .story-section {
-                margin-bottom: 1.5rem;
-            }
-            
-            /* Philosophy/Rhetoric section mobile optimizations */
-            .rhetoric-venn {
-                height: 350px;
-                margin: 1rem auto 2rem;
-                position: relative;
-            }
-            .venn-circle {
-                width: 100px;
-                height: 100px;
-                padding: 1rem;
-                cursor: pointer;
-                -webkit-tap-highlight-color: transparent;
-                border-width: 2px;
-            }
-            .venn-circle:active {
-                transform: scale(0.95);
-            }
-            .venn-circle h4 {
-                font-size: 1rem;
-                pointer-events: none;
-            }
-            .venn-circle.ethos {
-                animation: bounceEthosMobile 4s ease-in-out infinite;
-            }
-            .venn-circle.logos {
-                left: 5%;
-                bottom: 10px;
-                animation: bounceLogosMobile 4.5s ease-in-out infinite;
-            }
-            .venn-circle.pathos {
-                right: 5%;
-                bottom: 10px;
-                animation: bouncePathosMobile 5s ease-in-out infinite;
-            }
-            @keyframes bounceEthosMobile {
-                0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
-                50% { transform: translateX(-50%) translateY(-8px) scale(1.02); }
-            }
-            @keyframes bounceLogosMobile {
-                0%, 100% { transform: translateY(0) scale(1); }
-                50% { transform: translateY(-6px) scale(1.02); }
-            }
-            @keyframes bouncePathosMobile {
-                0%, 100% { transform: translateY(0) scale(1); }
-                50% { transform: translateY(-6px) scale(1.02); }
-            }
-            .rhetoric-explanation-center {
-                width: 90%;
-                max-width: 280px;
-                top: 30%;
-                padding: 0;
-            }
-            .rhetoric-prompt {
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-                font-size: 0.9rem;
-            }
-            .rhetoric-explanation {
-                padding: 1.25rem;
-            }
-            .rhetoric-explanation h3 {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
-            }
-            .rhetoric-explanation h3 .icon {
-                font-size: 1rem;
-            }
-            .rhetoric-explanation p {
-                font-size: 0.85rem;
-            }
-            .rhetoric-explanation p .first-line {
-                font-size: 0.8rem;
-                padding-top: 0.5rem;
-            }
-            .rhetoric-explanation p .second-line {
-                font-size: 0.85rem;
-                padding-bottom: 0.5rem;
-            }
-            
-            /* CTA button mobile */
-            .cta-button {
-                padding: 0.9rem 2rem;
-                font-size: 1rem;
-            }
-            
-            /* Promises section mobile */
-            .promises-container {
-                padding: 3rem 0;
-                margin-top: 2rem;
-            }
-            .promises-container h3 {
-                font-size: 1.5rem;
-                margin-bottom: 2rem;
-            }
-            .promises-list {
-                gap: 1rem;
-                padding: 0 1rem;
-            }
-            .promise-item {
-                margin-bottom: 0.5rem;
-                border-radius: 15px;
-            }
-            .promise-header {
-                padding: 1.5rem 1rem;
-                gap: 1rem;
-            }
-            .promise-icon-wrapper {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            .promise-title {
-                font-size: 1.2rem;
-            }
-            .promise-toggle {
-                font-size: 1.5rem;
-            }
-            .promise-content-inner {
-                padding: 1.5rem 1rem 2rem 1rem;
-                font-size: 1rem;
-            }
-            .promise-item.active .promise-header {
-                padding-bottom: 1rem;
-            }
-            
-            /* Section padding adjustments */
-            section {
-                padding: 3rem 0;
-            }
-            
-            /* Paragraph improvements for mobile */
-            p {
-                font-size: 0.95rem;
-                padding: 0;
-                line-height: 1.7;
-            }
-            
-            /* Why Hesychia section mobile */
-            #why-hesychia div[style*="padding: 3rem"] {
-                padding: 2rem 1.5rem !important;
-            }
-            #why-hesychia p[style*="font-size: 1.25rem"] {
-                font-size: 1.1rem !important;
-            }
-            
-            /* Hesychia Philosophy section mobile */
-            #hesychia-philosophy h3 {
-                font-size: 1.5rem !important;
-            }
-            #hesychia-philosophy h3 span {
-                font-size: 1.3rem;
-            }
-            #hesychia-philosophy div[style*="padding: 3rem"] {
-                padding: 2rem 1.5rem !important;
-            }
-            #hesychia-philosophy p[style*="font-size: 1.15rem"] {
-                font-size: 1rem !important;
-            }
-            
-            /* Philosophy intro mobile */
-            .philosophy-intro div[style*="padding: 3rem 2rem"] {
-                padding: 2rem 1rem !important;
-            }
-            .philosophy-intro p[style*="font-size: 1.8rem"] {
-                font-size: 1.3rem !important;
-                line-height: 1.5 !important;
-            }
-            
-            /* Contact section mobile */
-            .contact-info {
-                padding: 2rem 1.5rem;
-            }
-            .contact-info h3 {
-                font-size: 1.3rem;
-                margin-bottom: 1.5rem;
-            }
-            .contact-details {
-                font-size: 1rem;
-            }
-            
-            /* Footer mobile */
-            footer {
-                padding: 2rem 1rem;
-            }
-            footer .disclaimer {
-                font-size: 0.8rem;
-            }
-            
-            /* Ensure animations don't break layout on small screens */
-            .venn-circle {
-                animation-duration: 6s;
-                animation-iteration-count: 3;
-            }
+
+```
+        /* Improved container padding for mobile */
+        .container {
+            padding: 0 1rem;
         }
         
-        /* Very small devices (under 380px) */
-        @media (max-width: 380px) {
-            h1 {
-                font-size: 1.7rem;
+        /* Hero section mobile optimizations */
+        .hero {
+            padding-top: 5rem;
+            padding-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 1.8rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.75rem;
+        }
+        .hero-tagline {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .hero-quote {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+        .hero-quote cite {
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile navigation improvements */
+        nav .container {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-size: 1.2rem;
+        }
+        .nav-logo span {
+            font-size: 0.7rem;
+        }
+        .hamburger {
+            display: flex;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 40, 68, 0.97);
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .nav-links.active {
+            display: flex;
+        }
+        body.menu-open {
+            overflow: hidden;
+        }
+        .nav-links a {
+            padding: 1rem 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Services section mobile layout */
+        .services-container {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+        .services-menu {
+            gap: 0;
+        }
+        .service-item {
+            margin-bottom: 0;
+            border-radius: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2rem 1rem;
+        }
+        .service-item:first-child {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .service-item:last-child {
+            border-bottom: none;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .service-item::after {
+            content: '+';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--pale-blue);
+            transition: transform 0.3s ease;
+        }
+        .service-item.mobile-active::after {
+            content: '−';
+            transform: translateY(-50%) rotate(180deg);
+        }
+        .service-item h3 {
+            font-size: 1rem;
+            padding-right: 2rem;
+        }
+        .service-icon {
+            font-size: 1.5rem;
+        }
+        .service-details-container {
+            display: none;
+        }
+        .service-detail {
+            position: static;
+            margin: 0;
+            transform: none;
+            display: none;
+            border-radius: 0;
+            border-top: 2px solid var(--pale-blue);
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 1rem;
+        }
+        .service-detail h3 {
+            font-size: 1.4rem;
+        }
+        .service-detail p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .service-detail.mobile-active {
+            display: block;
+            opacity: 1;
+            animation: slideDown 0.3s ease-out;
+        }
+        @keyframes slideDown {
+            from {
+                max-height: 0;
+                opacity: 0;
+                padding-top: 0;
+                padding-bottom: 0;
             }
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-            .nav-logo {
-                font-size: 1.1rem;
-            }
-            .promise-title {
-                font-size: 1.1rem;
-            }
-            .rhetoric-explanation-center {
-                width: 95%;
+            to {
+                max-height: 500px;
+                opacity: 1;
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
             }
         }
-    </style>
+        .service-placeholder {
+            display: none !important;
+        }
+        
+        /* About section mobile layout */
+        .about-content {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .about-photo {
+            max-width: 280px;
+            margin-top: 1rem;
+        }
+        .about-left {
+            gap: 1.5rem;
+        }
+        .credentials-box {
+            padding: 1.5rem;
+        }
+        .credentials-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .credentials-list li {
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+        }
+        .highlight-quote {
+            font-size: 1.1rem;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .story-section h4 {
+            font-size: 1rem;
+        }
+        .story-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Philosophy/Rhetoric section mobile optimizations */
+        .rhetoric-venn {
+            height: 350px;
+            margin: 1rem auto 2rem;
+            position: relative;
+        }
+        .venn-circle {
+            width: 100px;
+            height: 100px;
+            padding: 1rem;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            border-width: 2px;
+        }
+        .venn-circle:active {
+            transform: scale(0.95);
+        }
+        .venn-circle h4 {
+            font-size: 1rem;
+            pointer-events: none;
+        }
+        .venn-circle.ethos {
+            animation: bounceEthosMobile 4s ease-in-out infinite;
+        }
+        .venn-circle.logos {
+            left: 5%;
+            bottom: 10px;
+            animation: bounceLogosMobile 4.5s ease-in-out infinite;
+        }
+        .venn-circle.pathos {
+            right: 5%;
+            bottom: 10px;
+            animation: bouncePathosMobile 5s ease-in-out infinite;
+        }
+        @keyframes bounceEthosMobile {
+            0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+            50% { transform: translateX(-50%) translateY(-8px) scale(1.02); }
+        }
+        @keyframes bounceLogosMobile {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.02); }
+        }
+        @keyframes bouncePathosMobile {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.02); }
+        }
+        .rhetoric-explanation-center {
+            width: 90%;
+            max-width: 280px;
+            top: 30%;
+            padding: 0;
+        }
+        .rhetoric-prompt {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .rhetoric-explanation {
+            padding: 1.25rem;
+        }
+        .rhetoric-explanation h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .rhetoric-explanation h3 .icon {
+            font-size: 1rem;
+        }
+        .rhetoric-explanation p {
+            font-size: 0.85rem;
+        }
+        .rhetoric-explanation p .first-line {
+            font-size: 0.8rem;
+            padding-top: 0.5rem;
+        }
+        .rhetoric-explanation p .second-line {
+            font-size: 0.85rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        /* CTA button mobile */
+        .cta-button {
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+        }
+        
+        /* Promises section mobile */
+        .promises-container {
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+        .promises-container h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .promises-list {
+            gap: 1rem;
+            padding: 0 1rem;
+        }
+        .promise-item {
+            margin-bottom: 0.5rem;
+            border-radius: 15px;
+        }
+        .promise-header {
+            padding: 1.5rem 1rem;
+            gap: 1rem;
+        }
+        .promise-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+        }
+        .promise-title {
+            font-size: 1.2rem;
+        }
+        .promise-toggle {
+            font-size: 1.5rem;
+        }
+        .promise-content-inner {
+            padding: 1.5rem 1rem 2rem 1rem;
+            font-size: 1rem;
+        }
+        .promise-item.active .promise-header {
+            padding-bottom: 1rem;
+        }
+        
+        /* Section padding adjustments */
+        section {
+            padding: 3rem 0;
+        }
+        
+        /* Paragraph improvements for mobile */
+        p {
+            font-size: 0.95rem;
+            padding: 0;
+            line-height: 1.7;
+        }
+        
+        /* Why Hesychia section mobile */
+        #why-hesychia div[style*="padding: 3rem"] {
+            padding: 2rem 1.5rem !important;
+        }
+        #why-hesychia p[style*="font-size: 1.25rem"] {
+            font-size: 1.1rem !important;
+        }
+        
+        /* Hesychia Philosophy section mobile */
+        #hesychia-philosophy h3 {
+            font-size: 1.5rem !important;
+        }
+        #hesychia-philosophy h3 span {
+            font-size: 1.3rem;
+        }
+        #hesychia-philosophy div[style*="padding: 3rem"] {
+            padding: 2rem 1.5rem !important;
+        }
+        #hesychia-philosophy p[style*="font-size: 1.15rem"] {
+            font-size: 1rem !important;
+        }
+        
+        /* Philosophy intro mobile */
+        .philosophy-intro div[style*="padding: 3rem 2rem"] {
+            padding: 2rem 1rem !important;
+        }
+        .philosophy-intro p[style*="font-size: 1.8rem"] {
+            font-size: 1.3rem !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* Contact section mobile */
+        .contact-info {
+            padding: 2rem 1.5rem;
+        }
+        .contact-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-details {
+            font-size: 1rem;
+        }
+        
+        /* Footer mobile */
+        footer {
+            padding: 2rem 1rem;
+        }
+        footer .disclaimer {
+            font-size: 0.8rem;
+        }
+        
+        /* Ensure animations don't break layout on small screens */
+        .venn-circle {
+            animation-duration: 6s;
+            animation-iteration-count: 3;
+        }
+    }
+    
+    /* Very small devices (under 380px) */
+    @media (max-width: 380px) {
+        h1 {
+            font-size: 1.7rem;
+        }
+        .hero h1 {
+            font-size: 1.6rem;
+        }
+        .nav-logo {
+            font-size: 1.1rem;
+        }
+        .promise-title {
+            font-size: 1.1rem;
+        }
+        .rhetoric-explanation-center {
+            width: 95%;
+        }
+    }
+</style>
+```
+
 </head>
 <body>
     <nav>
@@ -1294,7 +1298,7 @@
                                 Empathy
                             </h3>
                             <p>
-                                <span class="second-line">Effective advocacy requires empathy.</span>
+                                <span class="second-line">Effective advocacy requires understanding the human story.</span>
                                 <span class="first-line">It's hard to persuade someone if you can't illuminate the human stakes.</span>
                             </p>
                         </div>
@@ -1505,210 +1509,212 @@
             // Hamburger menu
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('nav-links');
-            
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
-                document.body.classList.toggle('menu-open');
-            });
-            
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        // Close mobile menu
-                        if (window.innerWidth <= 768) {
-                            hamburger.classList.remove('active');
-                            navLinks.classList.remove('active');
-                            document.body.classList.remove('menu-open');
-                        }
-                    }
-                });
-            });
-            
-            // Rhetoric circles - Simple approach
-            const ethosCircle = document.querySelector('.venn-circle.ethos');
-            const logosCircle = document.querySelector('.venn-circle.logos');
-            const pathosCircle = document.querySelector('.venn-circle.pathos');
-            
-            const ethosExp = document.getElementById('ethos-explanation');
-            const logosExp = document.getElementById('logos-explanation');
-            const pathosExp = document.getElementById('pathos-explanation');
-            
-            // Helper function to show/hide explanations
-            function showExplanation(exp) {
-                // Hide all first
-                ethosExp.classList.remove('active');
-                logosExp.classList.remove('active');
-                pathosExp.classList.remove('active');
-                // Show the selected one
-                if (exp) {
-                    exp.classList.add('active');
-                }
-            }
-            
-            // Desktop: hover events
-            if (window.innerWidth > 768) {
-                ethosCircle.addEventListener('mouseenter', () => showExplanation(ethosExp));
-                logosCircle.addEventListener('mouseenter', () => showExplanation(logosExp));
-                pathosCircle.addEventListener('mouseenter', () => showExplanation(pathosExp));
-                
-                // Hide on mouse leave from the entire venn diagram
-                document.querySelector('.rhetoric-venn').addEventListener('mouseleave', () => showExplanation(null));
-            }
-            
-            // Both mobile and desktop: click events
-            ethosCircle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                showExplanation(ethosExp);
-            });
-            logosCircle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                showExplanation(logosExp);
-            });
-            pathosCircle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                showExplanation(pathosExp);
-            });
-            
-            // Hide on outside click
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.rhetoric-venn')) {
-                    showExplanation(null);
-                }
-            });
-            
-            // Services section
-            const serviceItems = document.querySelectorAll('.service-item');
-            const placeholder = document.getElementById('service-placeholder');
-            
-            // Desktop services
-            if (window.innerWidth > 768) {
-                serviceItems.forEach((item, index) => {
-                    const serviceId = item.getAttribute('data-service');
-                    const detail = document.getElementById(serviceId + '-detail');
-                    
-                    // Function to show the service detail
-                    function showServiceDetail() {
-                        // Hide placeholder
-                        if (placeholder) placeholder.style.display = 'none';
-                        
-                        // Remove active from all
-                        serviceItems.forEach(i => i.classList.remove('active'));
-                        document.querySelectorAll('.service-detail').forEach(d => {
-                            d.classList.remove('active');
-                        });
-                        
-                        // Add active to current
-                        item.classList.add('active');
-                        if (detail) {
-                            // Calculate positioning to align bottom of last detail with bottom of last menu item
-                            const menuHeight = document.querySelector('.services-menu').offsetHeight;
-                            const detailHeight = 280; // Approximate height of detail box
-                            const itemCount = serviceItems.length;
-                            const totalDetailHeight = detailHeight;
-                            const availableSpace = menuHeight - totalDetailHeight;
-                            const spacing = availableSpace / (itemCount - 1);
-                            
-                            detail.style.top = (index * spacing) + 'px';
-                            detail.classList.add('active');
-                        }
-                    }
-                    
-                    // Both hover and click trigger the same function
-                    item.addEventListener('mouseenter', showServiceDetail);
-                    item.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        showServiceDetail();
+
+```
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                });
+                    // Close mobile menu
+                    if (window.innerWidth <= 768) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    }
+                }
+            });
+        });
+        
+        // Rhetoric circles - Simple approach
+        const ethosCircle = document.querySelector('.venn-circle.ethos');
+        const logosCircle = document.querySelector('.venn-circle.logos');
+        const pathosCircle = document.querySelector('.venn-circle.pathos');
+        
+        const ethosExp = document.getElementById('ethos-explanation');
+        const logosExp = document.getElementById('logos-explanation');
+        const pathosExp = document.getElementById('pathos-explanation');
+        
+        // Helper function to show/hide explanations
+        function showExplanation(exp) {
+            // Hide all first
+            ethosExp.classList.remove('active');
+            logosExp.classList.remove('active');
+            pathosExp.classList.remove('active');
+            // Show the selected one
+            if (exp) {
+                exp.classList.add('active');
+            }
+        }
+        
+        // Desktop: hover events
+        if (window.innerWidth > 768) {
+            ethosCircle.addEventListener('mouseenter', () => showExplanation(ethosExp));
+            logosCircle.addEventListener('mouseenter', () => showExplanation(logosExp));
+            pathosCircle.addEventListener('mouseenter', () => showExplanation(pathosExp));
+            
+            // Hide on mouse leave from the entire venn diagram
+            document.querySelector('.rhetoric-venn').addEventListener('mouseleave', () => showExplanation(null));
+        }
+        
+        // Both mobile and desktop: click events
+        ethosCircle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showExplanation(ethosExp);
+        });
+        logosCircle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showExplanation(logosExp);
+        });
+        pathosCircle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showExplanation(pathosExp);
+        });
+        
+        // Hide on outside click
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.rhetoric-venn')) {
+                showExplanation(null);
+            }
+        });
+        
+        // Services section
+        const serviceItems = document.querySelectorAll('.service-item');
+        const placeholder = document.getElementById('service-placeholder');
+        
+        // Desktop services
+        if (window.innerWidth > 768) {
+            serviceItems.forEach((item, index) => {
+                const serviceId = item.getAttribute('data-service');
+                const detail = document.getElementById(serviceId + '-detail');
                 
-                // Show placeholder when leaving services container
-                document.querySelector('.services-container').addEventListener('mouseleave', function() {
+                // Function to show the service detail
+                function showServiceDetail() {
+                    // Hide placeholder
+                    if (placeholder) placeholder.style.display = 'none';
+                    
+                    // Remove active from all
                     serviceItems.forEach(i => i.classList.remove('active'));
                     document.querySelectorAll('.service-detail').forEach(d => {
                         d.classList.remove('active');
                     });
-                    if (placeholder) placeholder.style.display = 'flex';
-                });
-            } else {
-                // Mobile services
-                serviceItems.forEach(item => {
-                    item.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        const serviceId = item.getAttribute('data-service');
-                        const detail = document.getElementById(serviceId + '-detail');
+                    
+                    // Add active to current
+                    item.classList.add('active');
+                    if (detail) {
+                        // Calculate positioning to align bottom of last detail with bottom of last menu item
+                        const menuHeight = document.querySelector('.services-menu').offsetHeight;
+                        const detailHeight = 280; // Approximate height of detail box
+                        const itemCount = serviceItems.length;
+                        const totalDetailHeight = detailHeight;
+                        const availableSpace = menuHeight - totalDetailHeight;
+                        const spacing = availableSpace / (itemCount - 1);
                         
-                        // Check if already active
-                        const isActive = item.classList.contains('mobile-active');
-                        
-                        // Remove all active states
-                        serviceItems.forEach(i => i.classList.remove('mobile-active'));
-                        document.querySelectorAll('.service-detail').forEach(d => {
-                            d.classList.remove('mobile-active');
-                        });
-                        
-                        // If wasn't active, activate it
-                        if (!isActive && detail) {
-                            item.classList.add('mobile-active');
-                            // Move detail element after the item
-                            item.parentNode.insertBefore(detail, item.nextSibling);
-                            // Add active class after a brief delay for animation
-                            setTimeout(() => {
-                                detail.classList.add('mobile-active');
-                            }, 10);
-                        }
-                    });
-                });
-            }
-            
-            // Promises section
-            const promiseItems = document.querySelectorAll('.promise-item');
-            
-            promiseItems.forEach(item => {
-                // Click handler for both mobile and desktop
+                        detail.style.top = (index * spacing) + 'px';
+                        detail.classList.add('active');
+                    }
+                }
+                
+                // Both hover and click trigger the same function
+                item.addEventListener('mouseenter', showServiceDetail);
                 item.addEventListener('click', function(e) {
                     e.stopPropagation();
+                    showServiceDetail();
+                });
+            });
+            
+            // Show placeholder when leaving services container
+            document.querySelector('.services-container').addEventListener('mouseleave', function() {
+                serviceItems.forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.service-detail').forEach(d => {
+                    d.classList.remove('active');
+                });
+                if (placeholder) placeholder.style.display = 'flex';
+            });
+        } else {
+            // Mobile services
+            serviceItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const serviceId = item.getAttribute('data-service');
+                    const detail = document.getElementById(serviceId + '-detail');
                     
                     // Check if already active
-                    const isActive = item.classList.contains('active');
+                    const isActive = item.classList.contains('mobile-active');
                     
-                    // Close all
-                    promiseItems.forEach(p => p.classList.remove('active'));
+                    // Remove all active states
+                    serviceItems.forEach(i => i.classList.remove('mobile-active'));
+                    document.querySelectorAll('.service-detail').forEach(d => {
+                        d.classList.remove('mobile-active');
+                    });
                     
-                    // Open clicked if wasn't active
-                    if (!isActive) {
-                        item.classList.add('active');
+                    // If wasn't active, activate it
+                    if (!isActive && detail) {
+                        item.classList.add('mobile-active');
+                        // Move detail element after the item
+                        item.parentNode.insertBefore(detail, item.nextSibling);
+                        // Add active class after a brief delay for animation
+                        setTimeout(() => {
+                            detail.classList.add('mobile-active');
+                        }, 10);
+                    }
+                });
+            });
+        }
+        
+        // Promises section
+        const promiseItems = document.querySelectorAll('.promise-item');
+        
+        promiseItems.forEach(item => {
+            // Click handler for both mobile and desktop
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Check if already active
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                promiseItems.forEach(p => p.classList.remove('active'));
+                
+                // Open clicked if wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Desktop: also add hover for preview
+            if (window.innerWidth > 768) {
+                item.addEventListener('mouseenter', function() {
+                    // Only show on hover if not already clicked
+                    if (!item.classList.contains('active')) {
+                        item.classList.add('hover-preview');
                     }
                 });
                 
-                // Desktop: also add hover for preview
-                if (window.innerWidth > 768) {
-                    item.addEventListener('mouseenter', function() {
-                        // Only show on hover if not already clicked
-                        if (!item.classList.contains('active')) {
-                            item.classList.add('hover-preview');
-                        }
-                    });
-                    
-                    item.addEventListener('mouseleave', function() {
-                        // Remove hover preview but keep active if clicked
-                        item.classList.remove('hover-preview');
-                    });
-                }
-            });
-            
-            // Close promises on outside click
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.promise-item')) {
-                    promiseItems.forEach(p => p.classList.remove('active'));
-                }
-            });
+                item.addEventListener('mouseleave', function() {
+                    // Remove hover preview but keep active if clicked
+                    item.classList.remove('hover-preview');
+                });
+            }
         });
-    </script>
+        
+        // Close promises on outside click
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.promise-item')) {
+                promiseItems.forEach(p => p.classList.remove('active'));
+            }
+        });
+    });
+</script>
+```
