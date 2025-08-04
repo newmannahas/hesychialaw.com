@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,16 +12,26 @@
     <style>
         /* --- Base Styles & Typography --- */
         :root {
-            --primary-blue: #1a3a5c;
-            --dark-blue: #0f2844;
-            --light-blue: #2d5479;
-            --pale-blue: #d4e2f1;
-            --accent-blue: #2c5282;
-            --text-dark: #2c3e50;
-            --text-light: #5a6c7d;
-            --white: #ffffff;
-            --gray-light: #f8f9fa;
-            --gray-border: #e1e8ed;
+            --primary-blue: 
+#1a3a5c;
+            --dark-blue: 
+#0f2844;
+            --light-blue: 
+#2d5479;
+            --pale-blue: 
+#d4e2f1;
+            --accent-blue: 
+#2c5282;
+            --text-dark: 
+#2c3e50;
+            --text-light: 
+#5a6c7d;
+            --white: 
+#ffffff;
+            --gray-light: 
+#f8f9fa;
+            --gray-border: 
+#e1e8ed;
         }
         * {
             box-sizing: border-box;
@@ -76,12 +85,12 @@
             color: var(--accent-blue);
             text-decoration: underline;
         }
-        /* Small caps style */
+        /* Small caps style /
         .small-caps {
             font-variant: small-caps;
             letter-spacing: 0.1em;
         }
-        /* --- Layout & Sections --- */
+        / --- Layout & Sections --- /
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -93,7 +102,7 @@
         section:nth-of-type(even) {
             background-color: var(--gray-light);
         }
-        /* --- Navigation Bar --- */
+        / --- Navigation Bar --- /
         nav {
             position: fixed;
             top: 0;
@@ -137,7 +146,7 @@
             color: var(--pale-blue);
             text-decoration: none;
         }
-        /* Hamburger Menu for Mobile */
+        / Hamburger Menu for Mobile /
         .hamburger {
             display: none;
             cursor: pointer;
@@ -159,7 +168,7 @@
         .hamburger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -6px);
         }
-        /* --- Hero Section --- */
+        / --- Hero Section --- /
         .hero {
             padding-top: 8rem;
             padding-bottom: 5rem;
@@ -215,7 +224,7 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             text-decoration: none;
         }
-        /* --- Philosophy Section --- */
+        / --- Philosophy Section --- /
         .philosophy-intro {
             text-align: center;
             margin-bottom: 3rem;
@@ -224,7 +233,7 @@
             color: var(--primary-blue);
             margin-bottom: 3rem;
         }
-        /* Updated Rhetoric Circles - Less Glitchy */
+        / Updated Rhetoric Circles - Less Glitchy /
         .rhetoric-venn {
             position: relative;
             max-width: 700px;
@@ -368,7 +377,7 @@
             font-style: italic;
             margin-bottom: 2rem;
         }
-        /* --- Services Section Updated --- */
+        / --- Services Section Updated --- /
         .services-container {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
@@ -381,7 +390,8 @@
             gap: 1rem;
         }
         .service-item {
-            background-color: #3a6590;
+            background-color: 
+#3a6590;
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
@@ -414,7 +424,6 @@
         }
         .service-details-container {
             position: relative;
-            min-height: 450px;
         }
         .service-detail {
             background-color: var(--white);
@@ -457,7 +466,7 @@
             font-style: italic;
             font-size: 1.1rem;
         }
-        /* --- About Section --- */
+        / --- About Section --- /
         .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -693,7 +702,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* Stagger animation on scroll */
+        / Stagger animation on scroll /
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -711,14 +720,15 @@
         .promise-item:nth-child(1) { animation-delay: 0.1s; }
         .promise-item:nth-child(2) { animation-delay: 0.2s; }
         .promise-item:nth-child(3) { animation-delay: 0.3s; }
-        /* --- Contact Section --- */
+        / --- Contact Section --- /
         .contact-content {
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
         }
         .contact-info {
-            background-color: #3a6590;
+            background-color: 
+#3a6590;
             padding: 3rem;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
@@ -740,7 +750,7 @@
         .contact-details a:hover {
             color: var(--white);
         }
-        /* --- Footer --- */
+        / --- Footer --- /
         footer {
             background-color: var(--dark-blue);
             color: var(--white);
@@ -756,9 +766,9 @@
             opacity: 0.7;
             margin-top: 1.5rem;
         }
-        /* --- Enhanced Mobile Responsive Design --- */
+        / --- Enhanced Mobile Responsive Design --- /
         @media (max-width: 768px) {
-            /* Typography adjustments for better readability */
+            / Typography adjustments for better readability */
             h1 { 
                 font-size: 2rem; 
                 letter-spacing: 0.05em;
@@ -770,8 +780,6 @@
             h3 {
                 font-size: 1.3rem;
             }
-
-```
         /* Improved container padding for mobile */
         .container {
             padding: 0 1rem;
@@ -1175,8 +1183,6 @@
         }
     }
 </style>
-```
-
 </head>
 <body>
     <nav>
@@ -1299,7 +1305,7 @@
                                 Empathy
                             </h3>
                             <p>
-                                <span class="second-line">Effective advocacy requires empathy.</span>
+                                <span class="second-line">Effective advocacy requires understanding the human story.</span>
                                 <span class="first-line">It's hard to persuade someone if you can't illuminate the human stakes.</span>
                             </p>
                         </div>
@@ -1510,8 +1516,6 @@
             // Hamburger menu
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('nav-links');
-
-```
         hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
@@ -1718,4 +1722,3 @@
         });
     });
 </script>
-```
