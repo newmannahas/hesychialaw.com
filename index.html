@@ -413,7 +413,6 @@
         }
         .service-details-container {
             position: relative;
-            min-height: 450px;
         }
         .service-detail {
             background-color: var(--white);
@@ -1609,8 +1608,14 @@
                         // Add active to current
                         item.classList.add('active');
                         if (detail) {
-                            // Position the detail based on the index
-                            const spacing = 70; // Adjust spacing between items
+                            // Calculate positioning to align bottom of last detail with bottom of last menu item
+                            const menuHeight = document.querySelector('.services-menu').offsetHeight;
+                            const detailHeight = 280; // Approximate height of detail box
+                            const itemCount = serviceItems.length;
+                            const totalDetailHeight = detailHeight;
+                            const availableSpace = menuHeight - totalDetailHeight;
+                            const spacing = availableSpace / (itemCount - 1);
+                            
                             detail.style.top = (index * spacing) + 'px';
                             detail.classList.add('active');
                         }
