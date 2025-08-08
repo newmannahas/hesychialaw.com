@@ -83,11 +83,15 @@
         /* --- Layout & Sections --- */
         .container {
             max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             padding: 0 2rem;
+            overflow-x: hidden;
         }
         section {
             padding: 5rem 0;
+            width: 100%;
+            overflow-x: hidden;
         }
         /* --- Navigation Bar --- */
         nav {
@@ -218,6 +222,8 @@
             padding: 5rem 0;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: 100vw;
         }
         
         .track-record-showcase::before {
@@ -249,9 +255,16 @@
         .victories-carousel {
             position: relative;
             max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             padding: 0 2rem;
             z-index: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .victories-carousel {
+                padding: 0 1rem;
+            }
         }
         
         .carousel-container {
@@ -262,6 +275,9 @@
             box-shadow: 0 20px 60px rgba(26, 58, 92, 0.25);
             border: 1px solid rgba(26, 58, 92, 0.1);
             min-height: 250px;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            -webkit-transform: translateZ(0); /* Hardware acceleration */
+            transform: translateZ(0);
         }
         
         .carousel-container::before {
@@ -287,16 +303,19 @@
             transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             z-index: 2;
+            width: 100%;
         }
         
         .victory-slide {
             min-width: 100%;
+            width: 100%;
             padding: 3.5rem 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             flex-shrink: 0;
+            flex-grow: 0;
         }
         
         .victory-content {
@@ -352,6 +371,20 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+        
+        /* Simplified animations for mobile */
+        @media (max-width: 768px) {
+            .victory-amount,
+            .victory-description,
+            .victory-type {
+                animation-duration: 0.5s;
+                animation-delay: 0s !important;
+            }
+            
+            .carousel-container::before {
+                display: none; /* Disable shimmer on mobile for performance */
             }
         }
         
@@ -922,6 +955,31 @@
         }
         /* --- Enhanced Mobile Responsive Design --- */
         @media (max-width: 768px) {
+            /* Prevent horizontal overflow */
+            body {
+                overflow-x: hidden;
+                max-width: 100vw;
+            }
+            
+            /* Track Record specific fixes */
+            .victories-carousel {
+                max-width: 100%;
+                overflow: hidden;
+            }
+            
+            .carousel-track {
+                display: flex;
+                align-items: stretch;
+            }
+            
+            .victory-slide {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-width: 100%;
+            }
+            
             /* Typography adjustments for better readability */
             h1 { 
                 font-size: 2rem; 
@@ -965,44 +1023,83 @@
             
             /* Track Record Mobile */
             .track-record-showcase {
-                padding: 3rem 0;
+                padding: 2.5rem 0;
+                width: 100%;
+                overflow-x: hidden;
             }
             
             .track-record-header h2 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
+                letter-spacing: 0.08em;
+                padding: 0 1rem;
+                line-height: 1.3;
+                margin-bottom: 1.5rem;
             }
             
-            .carousel-container {
-                border-radius: 10px;
-                min-height: 200px;
-            }
-            
-            .victory-slide {
-                padding: 2.5rem 1.5rem;
-            }
-            
-            .victory-amount {
-                font-size: 2.2rem;
-            }
-            
-            .victory-description {
-                font-size: 1.05rem;
+            .victories-carousel {
                 padding: 0 1rem;
             }
             
+            .carousel-container {
+                border-radius: 15px;
+                min-height: 280px;
+                box-shadow: 0 10px 30px rgba(26, 58, 92, 0.2);
+            }
+            
+            .victory-slide {
+                padding: 2rem 1rem;
+                min-height: 280px;
+                display: flex;
+                align-items: center;
+            }
+            
+            .victory-content {
+                padding: 1rem 0;
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .victory-amount {
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+                line-height: 1.1;
+                word-wrap: break-word;
+            }
+            
+            .victory-description {
+                font-size: 0.9rem;
+                padding: 0 0.5rem;
+                margin-bottom: 1rem;
+                line-height: 1.4;
+                word-wrap: break-word;
+                max-width: 100%;
+            }
+            
             .victory-type {
-                font-size: 0.8rem;
-                padding: 0.5rem 1.5rem;
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+                letter-spacing: 0.05em;
             }
             
             .carousel-arrow {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+                background: rgba(255, 255, 255, 0.2);
+            }
+            
+            .carousel-arrows {
+                padding: 0 0.5rem;
             }
             
             .carousel-nav {
-                bottom: 1rem;
+                bottom: 0.75rem;
+                gap: 0.5rem;
+            }
+            
+            .carousel-dot {
+                width: 8px;
+                height: 8px;
             }
             
             /* Mobile navigation improvements */
@@ -1381,11 +1478,50 @@
             .rhetoric-explanation-center {
                 width: 95%;
             }
-            .victory-amount {
-                font-size: 1.8rem;
+            
+            /* Track Record adjustments for very small screens */
+            .track-record-header h2 {
+                font-size: 1.3rem;
             }
+            
+            .carousel-container {
+                min-height: 260px;
+            }
+            
+            .victory-slide {
+                min-height: 260px;
+                padding: 1.5rem 0.75rem;
+            }
+            
+            .victory-amount {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+            
             .victory-description {
-                font-size: 0.95rem;
+                font-size: 0.85rem;
+                padding: 0 0.25rem;
+                line-height: 1.3;
+            }
+            
+            .victory-type {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.75rem;
+            }
+            
+            .carousel-arrow {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+            
+            .carousel-nav {
+                bottom: 0.5rem;
+            }
+            
+            .carousel-dot {
+                width: 7px;
+                height: 7px;
             }
         }
     </style>
@@ -1828,6 +1964,8 @@
                 const slides = carouselTrack.querySelectorAll('.victory-slide');
                 let currentSlide = 0;
                 let autoplayInterval;
+                let touchStartX = 0;
+                let touchEndX = 0;
                 
                 // Create dots
                 slides.forEach((_, index) => {
@@ -1872,6 +2010,25 @@
                 
                 function startAutoplay() {
                     autoplayInterval = setInterval(nextSlide, 10000); // Slowed down to 10 seconds
+                }
+                
+                // Touch support for mobile swipe
+                carouselTrack.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, false);
+                
+                carouselTrack.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }, false);
+                
+                function handleSwipe() {
+                    if (touchEndX < touchStartX - 50) {
+                        nextSlide(); // Swipe left
+                    }
+                    if (touchEndX > touchStartX + 50) {
+                        prevSlide(); // Swipe right
+                    }
                 }
                 
                 prevArrow.addEventListener('click', prevSlide);
