@@ -165,11 +165,31 @@
             padding-bottom: 5rem;
             background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
             color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(212, 226, 241, 0.05) 50%, transparent 70%);
+            transform: translateX(-100%);
+            animation: subtle-sweep 20s ease-in-out infinite;
+        }
+        @keyframes subtle-sweep {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
         .hero-content {
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         .hero h1 {
             color: var(--white);
@@ -707,7 +727,6 @@
             width: 100%;
             max-width: 350px;
             margin: 0 auto;
-            margin-top: 2rem;
         }
         .credentials-box {
             background-color: var(--pale-blue);
@@ -738,7 +757,7 @@
             font-size: 1.3rem;
             font-style: italic;
             color: var(--primary-blue);
-            margin: 2rem 0;
+            margin: 0 0 2rem 0;
             padding-left: 2rem;
             border-left: 4px solid var(--light-blue);
         }
@@ -1235,7 +1254,7 @@
             }
             .about-photo {
                 max-width: 280px;
-                margin-top: 1rem;
+                margin-top: 0;
             }
             .about-photo img {
                 width: 100%;
@@ -1580,7 +1599,7 @@
         <section class="track-record-showcase" id="track-record">
             <div class="container">
                 <div class="track-record-header">
-                    <h2>Two-Decade Track Record of Results</h2>
+                    <h2>Newman's Two-Decade Track Record</h2>
                 </div>
                 
                 <div class="victories-carousel">
@@ -1596,21 +1615,21 @@
                             <div class="victory-slide">
                                 <div class="victory-content">
                                     <div class="victory-amount">$10+ Billion</div>
-                                    <div class="victory-description">Securities class action defeated via motion to dismiss</div>
+                                    <div class="victory-description">Securities class action defeated—motion to dismiss</div>
                                     <span class="victory-type">Pre-Discovery Win</span>
                                 </div>
                             </div>
                             <div class="victory-slide">
                                 <div class="victory-content">
                                     <div class="victory-amount">$200 Million</div>
-                                    <div class="victory-description">Default judgment voided through strategic appellate advocacy</div>
+                                    <div class="victory-description">Judgment voided through strategic appellate advocacy</div>
                                     <span class="victory-type">Judgment Reversed</span>
                                 </div>
                             </div>
                             <div class="victory-slide">
                                 <div class="victory-content">
                                     <div class="victory-amount">$130 Million</div>
-                                    <div class="victory-description">Claims eliminated via directed verdict on eve of jury charge</div>
+                                    <div class="victory-description">Claims eliminated—directed verdict on eve of jury charge</div>
                                     <span class="victory-type">Trial Victory</span>
                                 </div>
                             </div>
@@ -1826,12 +1845,12 @@
                         </div>
                     </div>
                     <div class="about-text">
-                        <div class="highlight-quote">
-                            "Newman is driven by what Stephen J. Gould termed 'intellectual promiscuity'—loving butterflies as much as literature because there is no fancy without science and no art without facts."
-                        </div>
                         <div class="story-section">
                             <h4>Before the Law</h4>
                             <p>From physics to philosophy, Newman's undergraduate years spanned thirteen disciplines, building the interdisciplinary foundation that defines his practice today. At Oxford, his research explored where science, philosophy, and religion converge.</p>
+                        </div>
+                        <div class="highlight-quote">
+                            "Newman is driven by what Stephen J. Gould termed 'intellectual promiscuity'—loving butterflies as much as literature because there is no fancy without science and no art without facts."
                         </div>
                         <div class="story-section">
                             <h4>The Teaching Moment</h4>
